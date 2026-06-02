@@ -702,11 +702,12 @@ function render() {
 
     <section class="hero">
       <div>
-        <h1>${isRrss
-          ? `<span class="row">el dashboard de <em>${DATA.meta.client}</em><span class="ast">*</span></span><span class="row">${DATA.meta.month_label.toLowerCase()}.</span>`
-          : `<span class="row">seo, sin <em>humo</em><span class="ast">*</span></span><span class="row">solo lo que <em>mueve</em>.</span>`
-        }</h1>
-        <p>${isRrss
+        <h1>
+          <span class="row" style="font-size: clamp(52px,6vw,80px); letter-spacing:-0.04em"><em>${DATA.meta.client}</em><span class="ast">*</span></span>
+          <span class="row" style="font-size: clamp(22px,2.8vw,36px); font-weight:600; color:var(--ink); letter-spacing:-0.02em; margin-top:6px; display:block">${DATA.meta.month_label}.</span>
+          <span class="row hero-tagline" style="font-size: clamp(14px,1.6vw,20px); font-weight:600; color:var(--accent); letter-spacing:-0.01em; margin-top:10px; display:block">${isRrss ? DATA.meta.tagline_linkedin || 'los números no mienten, pero sí se maquillan*' : DATA.meta.tagline_seo || 'google te quiere, pero hay que currárselo*'}</span>
+        </h1>
+        <p style="margin-top:20px">${isRrss
           ? 'objetivos, números y gráficas de linkedin. todo en un sitio. si cambia algo al mes que viene este dashboard se actualiza solo.'
           : 'sesiones orgánicas, posiciones, backlinks. lo que de verdad mete tráfico desde google. nada de vanity metrics.'
         }</p>
@@ -721,17 +722,16 @@ function render() {
       </div>
     </section>
 
-    <!-- 01 INFORME IA -->
+    <!-- 01 INFORME DEL MES -->
     <section class="section">
       <div class="section-head">
-        <h2><span class="num">01</span> informe del mes · ia</h2>
-        <div class="sub">análisis generado por IA actuando como social media manager senior. actualizado con cada nuevo data.json.</div>
+        <h2><span class="num">01</span> informe del mes</h2>
+        <div class="sub">actualizado cada mes. los datos mandan.</div>
       </div>
       <div class="informe-ia">
         <div class="informe-ia-header">
-          <span class="ia-badge">análisis ia</span>
-          <span class="informe-ia-title">${isRrss?'lectura linkedin':'lectura seo'} · ${DATA.meta.month_label}</span>
-          <span class="informe-ia-meta">generado · ${genDate}</span>
+          <span class="informe-ia-title">${isRrss?'linkedin':'seo'} · ${DATA.meta.month_label}</span>
+          <span class="informe-ia-meta">actualizado · ${genDate}</span>
         </div>
         <div class="informe-ia-body">${parseMarkdown(informe)}</div>
       </div>
@@ -779,27 +779,6 @@ function render() {
 
     <!-- TOP POSTS / KEYWORDS -->
     ${extraTable}
-
-    <!-- PROYECTOS -->
-    <section class="section">
-      <div class="section-head">
-        <h2><span class="num">${extraTable?'06':'05'}</span> proyectos en activo · ${isRrss?'linkedin':'seo'}</h2>
-      </div>
-      <table class="projects-table">
-        <thead>
-          <tr>
-            <th style="width:38%">proyecto</th>
-            <th style="width:14%">estado</th>
-            <th style="width:16%">revisión</th>
-            <th style="width:22%">progreso</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${projects.map(p => projectRow(p)).join('')}
-          ${!projects.length ? `<tr><td colspan="4" style="text-align:center;padding:40px;color:var(--ink-mute)">no hay proyectos de ${isRrss?'linkedin':'seo'} este mes</td></tr>` : ''}
-        </tbody>
-      </table>
-    </section>
 
     <footer class="footer">
       <div>hanson<span style="color:var(--accent)">*</span> · agencia de publicidad leal</div>
