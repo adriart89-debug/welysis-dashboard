@@ -2,67 +2,62 @@
   "meta": {
     "client": "welysis",
     "period": "2026",
-    "updated": "2026-03-01",
-    "month_label": "Marzo 2026",
-    "tagline_linkedin": "marzo fue bien. abril tiene que ser mejor*",
-    "tagline_seo": "google nos quiere, pero hay que currárselo*",
-    "generated_by": "hanson-updater v1"
+    "updated": "2026-06-02",
+    "month_label": "Mayo 2026",
+    "tagline_linkedin": "mayo fue raro. los números dicen otra cosa*",
+    "tagline_seo": "958 clics. google nos quiere, pero hay que currárselo*",
+    "generated_by": "hanson* manual v1"
   },
   "linkedin": {
     "goals": {
-      "seguidores":      { "current": 1361, "target": 2500 },
-      "impresiones":     { "current": 1444, "target": 5000 },
-      "visitantes":      { "current": 48,   "target": 200  },
-      "visualizaciones": { "current": 109,  "target": 500  },
-      "reacciones":      { "current": 28,   "target": 120  },
+      "seguidores":      { "current": 1095, "target": 2500 },
+      "impresiones":     { "current": 2944, "target": 5000 },
+      "visitantes":      { "current": 143,  "target": 200  },
+      "visualizaciones": { "current": 0,    "target": 500  },
+      "reacciones":      { "current": 101,  "target": 120  },
       "comentarios":     { "current": 1,    "target": 25   }
     },
     "metrics": {
-      "seguidores":      { "values": [1036, 1045, 1361, null, null, null, null, null, null, null, null, null], "color": "#f24b3b" },
-      "impresiones":     { "values": [1669, 1109, 1444, null, null, null, null, null, null, null, null, null], "color": "#ece4d3" },
-      "visitantes":      { "values": [56,   48,   48,   null, null, null, null, null, null, null, null, null], "color": "#c8e87a" },
-      "visualizaciones": { "values": [111,  102,  109,  null, null, null, null, null, null, null, null, null], "color": "#ffb84d" },
-      "reacciones":      { "values": [20,   38,   28,   null, null, null, null, null, null, null, null, null], "color": "#f24b3b" },
-      "comentarios":     { "values": [1,    0,    1,    null, null, null, null, null, null, null, null, null], "color": "#b8b3aa" }
+      "seguidores":      { "values": [1036, 1049, 1061, 1068, 1095, null, null, null, null, null, null, null], "color": "#f24b3b" },
+      "impresiones":     { "values": [1669, 1109, 1444, 3230, 2944, null, null, null, null, null, null, null], "color": "#ece4d3" },
+      "visitantes":      { "values": [56,   48,   48,   128,  143,  null, null, null, null, null, null, null], "color": "#c8e87a" },
+      "visualizaciones": { "values": [111,  102,  109,  178,  0,    null, null, null, null, null, null, null], "color": "#ffb84d" },
+      "reacciones":      { "values": [20,   35,   26,   61,   101,  null, null, null, null, null, null, null], "color": "#f24b3b" },
+      "comentarios":     { "values": [0,    0,    0,    5,    1,    null, null, null, null, null, null, null], "color": "#b8b3aa" }
     },
     "top_posts": [
-      { "date": "2026-03-12", "title": "Electrolysis breakthrough in modular plants", "impressions": 412, "reactions": 11, "comments": 0 },
-      { "date": "2026-03-05", "title": "WIN Network: connecting chlor-alkali innovators", "impressions": 387, "reactions": 9, "comments": 1 },
-      { "date": "2026-02-28", "title": "CORE model: scalable from day one", "impressions": 298, "reactions": 8, "comments": 0 }
+      { "date": "2026-05-19", "title": "Last week we attended the @Afr...", "impressions": 614, "reactions": 34, "comments": 0 },
+      { "date": "2026-05-15", "title": "Most water treatment facilitie...", "impressions": 349, "reactions": 13, "comments": 0 },
+      { "date": "2026-05-29", "title": "Most people think of beaches w...", "impressions": 311, "reactions": 10, "comments": 0 },
+      { "date": "2026-05-27", "title": "Engineering isn't just about s...", "impressions": 215, "reactions": 10, "comments": 1 },
+      { "date": "2026-05-07", "title": "Most industrial assets will be...", "impressions": 264, "reactions": 15, "comments": 0 }
     ]
   },
   "seo": {
     "goals": {
-      "sesiones":       { "current": 478, "target": 2000 },
-      "posicion_media": { "current": 31,  "target": 10,  "invert": true },
-      "backlinks":      { "current": 24,  "target": 80   },
-      "keywords_top10": { "current": 11,  "target": 50   }
+      "sesiones":       { "current": 1081, "target": 2000 },
+      "posicion_media": { "current": 8.56, "target": 5,   "invert": true },
+      "clics_organicos":{ "current": 958,  "target": 2000 },
+      "keywords_top10": { "current": 111,  "target": 200  }
     },
     "metrics": {
-      "sesiones":       { "values": [320, 410, 478, null, null, null, null, null, null, null, null, null], "color": "#c8e87a" },
-      "posicion_media": { "values": [42,  38,  31,  null, null, null, null, null, null, null, null, null], "color": "#ffb84d", "invert": true },
-      "backlinks":      { "values": [12,  18,  24,  null, null, null, null, null, null, null, null, null], "color": "#f24b3b" },
-      "keywords_top10": { "values": [4,   7,   11,  null, null, null, null, null, null, null, null, null], "color": "#ece4d3" }
+      "sesiones":        { "values": [null, null, null, null, 1081, null, null, null, null, null, null, null], "color": "#c8e87a" },
+      "posicion_media":  { "values": [6.4,  5.9,  5.4,  6.0,  8.56, null, null, null, null, null, null, null], "color": "#ffb84d", "invert": true },
+      "clics_organicos": { "values": [701,  789,  773,  962,  958,  null, null, null, null, null, null, null], "color": "#f24b3b" },
+      "keywords_top10":  { "values": [62,   71,   84,   111,  111,  null, null, null, null, null, null, null], "color": "#ece4d3" }
     },
     "top_keywords": [
-      { "keyword": "chlor-alkali plant modular", "position": 4,  "volume": 210 },
-      { "keyword": "electrolysis industrial scale", "position": 7,  "volume": 880 },
-      { "keyword": "welysis ONE CORE MAX",         "position": 1,  "volume": 40  },
-      { "keyword": "modular electrolyzer",          "position": 9,  "volume": 590 },
-      { "keyword": "caustic soda production unit",  "position": 11, "volume": 320 }
+      { "keyword": "chlor-alkali plants",          "position": 4,  "volume": 880 },
+      { "keyword": "caustic soda production",       "position": 5,  "volume": 720 },
+      { "keyword": "electrolysis water purification","position": 2, "volume": 590 },
+      { "keyword": "sodium hypochlorite drinking water","position": 6,"volume": 480 },
+      { "keyword": "welysis",                       "position": 1,  "volume": 90  }
     ]
   },
   "informe_ia": {
-    "linkedin": "Marzo ha sido un mes con buenas noticias. Los seguidores crecen un **30,1%** respecto a enero y las impresiones se recuperan después del bajón de febrero. La estrategia de contenido técnico está funcionando: los perfiles industriales del sector están encontrando a Welysis, y eso es exactamente lo que buscamos. No estamos aquí para acumular seguidores random, estamos aquí para que te vean las personas que de verdad importan.\n\nEl dato que hay que vigilar son las reacciones: bajaron de 38 a 28. No es para echarse las manos a la cabeza, pero sí es una señal de que los posts de marzo generaron menos conversación que los de febrero. Pasa cuando el contenido se vuelve demasiado informativo y pierde ese punto de opinión o pregunta que invita a la gente a parar y reaccionar. Los mejores meses en LinkedIn son los que mezclan contenido técnico con algo que haga pensar.\n\nPara abril: recupera al menos una pieza de opinión o pregunta abierta. Algo del estilo «¿escala primero o automatiza?» o una toma de posición sobre una tendencia del sector. El objetivo de **2.500 seguidores** está al 54% y el ritmo es bueno, pero hay que apretar en Q2 si queremos llegar. Tenemos margen, pero no tanto como para relajarse*",
-    "seo": "Tercer mes seguido mejorando posición media: de 42 a 31, y eso no es casualidad, es trabajo. Las sesiones orgánicas crecen un **16,6%** respecto a febrero y ya tenemos **11 keywords en el top 10**, cuatro más que el mes pasado. Todo apunta en la dirección correcta, y lo mejor es que todavía hay mucho recorrido por delante.\n\nEl punto que más ilusión hace este mes es el avance en keywords de intención comercial. «Chlor-alkali plant modular» en posición 4 y «electrolysis industrial scale» en posición 7 son búsquedas de gente que está buscando exactamente lo que fabrica Welysis. Ahí es donde está el dinero, y estamos entrando. Los backlinks también siguen creciendo: **24 en total**, con dos menciones nuevas en medios especializados en procesos industriales.\n\nLa prioridad para abril es una sola, y hay que resolverla ya: el LCP está en **3,2 segundos** y Google empieza a penalizarte por encima de 2,5s de forma consistente. Antes de escalar la estrategia de contenidos, hay que bajar ese tiempo de carga. Si construimos sobre una web lenta, todo lo demás cojea*",
-    "generado": "2026-03-01T10:00:00Z"
+    "linkedin": "Mayo ha sido un mes con datos para analizar con calma. Los seguidores siguen creciendo, ya vamos por **1.095**, y los visitantes al perfil han subido a **143**, el mejor dato desde que empezamos. Pero hay una métrica que llama la atención: las impresiones de contenido bajan a 1.753 en posts propios, aunque el engagement se ha disparado a **+314%**. Eso significa una cosa muy concreta: publicamos menos veces (5 posts), pero lo que publicamos ha conectado mucho mejor. El post del evento en África llegó a **614 impresiones y 34 reacciones**, que para el volumen de seguidores que tenemos es un resultado muy sólido.\n\nLa parte que hay que trabajar es la constancia. 5 posts en un mes es poco para un perfil que todavía está construyendo masa crítica. Las reacciones están en **101**, casi en el objetivo anual de 120 y solo en mayo, lo que confirma que cuando el contenido es bueno la audiencia responde. El problema no es la calidad, es el volumen. Necesitamos mantener ese nivel de contenido pero publicando más.\n\nPara junio la prioridad es clara: mantener el estilo de los posts que mejor han funcionado (eventos reales, contexto industrial, contenido cercano) y aumentar la cadencia a al menos 8-10 publicaciones. El objetivo de **2.500 seguidores** está al 44% del año, hay que acelerar. El material está, la estrategia funciona, solo falta más gas*",
+    "seo": "Los números de mayo hablan claro: **958 clics orgánicos** y **137.164 impresiones** entre Google y Bing. El SEO es el principal motor de Welysis en digital, con el **76% del tráfico total** viniendo de búsqueda orgánica. Eso no es casualidad, es el resultado de meses trabajando contenido técnico en tres idiomas. Hay **111 keywords en top 10**, el mejor dato del año, y la web ya aparece en respuestas de ChatGPT, Claude, Perplexity y Gemini, algo que en un sector B2B industrial vale mucho.\n\nEl punto que necesita atención es la posición media: **8,56**. Ha empeorado respecto a los meses anteriores (veníamos de 5,4 en marzo), lo que indica que hay más competencia o que algunas páginas han perdido posiciones. No es alarmante, pero hay que vigilarlo. El CTR combinado está en **0,70%**, que con ese volumen de impresiones tiene mucho margen de mejora. Google ya muestra la web, pero los usuarios no están clicando tanto como deberían. El problema suele estar en los títulos y metadescripciones.\n\nLa prioridad para junio es una: mejorar los títulos y descripciones de las páginas que ya tienen muchas impresiones pero poco CTR, especialmente en francés e inglés. Páginas como la de sosa cáustica en francés o caustic soda en inglés ya están en primera página de Google, pero el snippet no invita suficientemente al clic. Con ese cambio, el tráfico puede crecer sin publicar una sola línea nueva de contenido*",
+    "generado": "2026-06-02T10:00:00Z"
   },
-  "projects": [
-    { "id": 1, "name": "logo + naming \"las plantas\"", "note": "pendiente invertir orden de elementos", "status": "proceso", "date": "2026-03-19", "progress": 70, "area": "rrss" },
-    { "id": 2, "name": "grabación material linkedin", "note": "se graba este martes", "status": "proceso", "date": "2026-03-17", "progress": 45, "area": "rrss" },
-    { "id": 3, "name": "aprobar calendario publicaciones marzo", "note": "pendiente aceptar en metricool", "status": "retraso", "date": "2026-03-16", "progress": 30, "area": "rrss" },
-    { "id": 4, "name": "auditoría seo on-page web", "note": "identificar quick wins de meta + h1", "status": "proceso", "date": "2026-03-22", "progress": 55, "area": "seo" },
-    { "id": 5, "name": "plan de contenidos blog q2", "note": "keywords objetivo definidas, faltan briefings", "status": "pendiente", "date": "2026-03-25", "progress": 15, "area": "seo" },
-    { "id": 6, "name": "optimización core web vitals", "note": "lcp en 3.2s, hay que bajarlo de 2.5s", "status": "retraso", "date": "2026-03-20", "progress": 40, "area": "seo" }
-  ]
+  "projects": []
 }
