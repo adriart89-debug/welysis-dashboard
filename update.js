@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * hanson* · actualizador mensual Welysis Dashboard v3
- * Lee desde Google Sheets y genera data.json
+ * hanson* · actualizador mensual Welysis Dashboard v4
+ * Lee histórico completo desde Google Sheets y genera data.json
  */
 'use strict';
 
@@ -22,10 +22,9 @@ const MONTH_FULL = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                     'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
 const log = msg => console.log(`[${new Date().toISOString()}] ${msg}`);
-function now()             { return new Date().toISOString().slice(0,10); }
-function monthLabel()      { const d = new Date(); return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`; }
-function monthFullLabel()  { const d = new Date(); return `${MONTH_FULL[d.getMonth()]} ${d.getFullYear()}`; }
-function currentMonthIdx() { return new Date().getMonth(); }
+function now()            { return new Date().toISOString().slice(0,10); }
+function monthLabel()     { const d = new Date(); return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`; }
+function currentMonthIdx(){ return new Date().getMonth(); }
 
 function loadExisting() {
   try   { return JSON.parse(fs.readFileSync(CFG.outputJson, 'utf8')); }
@@ -34,14 +33,10 @@ function loadExisting() {
 
 function parseNum(val) {
   if (val === null || val === undefined || val === '' || val === '—') return null;
-  const n = parseFloat(String(val).replace(/\./g,'').replace(',','.'));
+  const s = String(val).trim();
+  // Formato español: 1.036 = mil, 1,5 = decimal
+  const n = parseFloat(s.replace(/\./g,'').replace(',','.'));
   return isNaN(n) ? null : n;
-}
-
-function mergeHistory(newVals, existing) {
-  const out = existing ? [...existing] : new Array(12).fill(null);
-  newVals.forEach((v, i) => { if (v !== null) out[i] = v; });
-  return out;
 }
 
 async function getSheets() {
@@ -62,153 +57,160 @@ async function readRange(sheets, range) {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   LINKEDIN
-   Estructura real del Sheets (hoja LINKEDIN):
-   Fila 1: título
-   Fila 2: separador rojo
-   Fila 3: cabecera (KPI | OBJETIVO | Ene | Feb | ... | Dic | MEDIA | VS OBJ)
-   Fila 4: Seguidores
-   Fila 5: Impresiones
-   Fila 6: Visitantes
-   Fila 7: Visualizaciones
-   Fila 8: Reacciones
-   Fila 9: Comentarios
+   LINKEDIN — lee filas 4-9, columnas A-N
+   Col 0=KPI, Col 1=Objetivo, Col 2..13=Ene..Dic
    ══════════════════════════════════════════════════════════════════════════════ */
-async function readLinkedin(sheets, existing) {
+async function readLinkedin(sheets) {
   log('Leyendo LINKEDIN...');
-
-  // Leemos filas 4-9, columnas A-N (KPI, Objetivo, Ene..Dic, Media, VsObj)
   const rows = await readRange(sheets, 'LINKEDIN!A4:N9');
 
   const keys    = ['seguidores','impresiones','visitantes','visualizaciones','reacciones','comentarios'];
   const colors  = ['#f24b3b','#ece4d3','#c8e87a','#ffb84d','#f24b3b','#b8b3aa'];
   const targets = { seguidores:2000, impresiones:2500, visitantes:100, visualizaciones:100, reacciones:50, comentarios:10 };
-  const types   = { seguidores:'anual', impresiones:'mensual', visitantes:'mensual', visualizaciones:'mensual', reacciones:'mensual', comentarios:'mensual' };
 
   const goals   = {};
   const metrics = {};
 
   keys.forEach((key, i) => {
-    const row = rows[i] || [];
-    // col 0 = nombre KPI, col 1 = objetivo, col 2..13 = Ene..Dic
+    const row    = rows[i] || [];
     const values = [];
     for (let m = 0; m < 12; m++) {
       values.push(parseNum(row[m + 2]));
     }
-
-    const merged  = mergeHistory(values, existing?.linkedin?.metrics?.[key]?.values);
-    const lastVal = [...merged].reverse().find(v => v !== null) ?? 0;
-
+    const lastVal = [...values].reverse().find(v => v !== null) ?? 0;
     goals[key]   = { current: lastVal, target: targets[key] };
-    if (types[key] === 'anual') goals[key].tipo = 'anual';
-    metrics[key] = { values: merged, color: colors[i] };
+    metrics[key] = { values, color: colors[i] };
   });
 
-  log(`  → LinkedIn OK`);
+  log('  → LinkedIn OK');
   return { goals, metrics };
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   SEO
-   Estructura real del Sheets (hoja SEO):
-   Fila 1: título
-   Fila 2: separador rojo
-   Fila 3: cabecera (KPI | Ene | Feb | ... | Dic | MEDIA | TENDENCIA)
-   Fila 4: Impresiones orgánicas
-   Fila 5: Clics orgánicos
-   Fila 6: Posición media
-   Fila 7: Formularios enviados
-   Fila 8: Eventos interacción
-   Fila 9: KW en top 10
+   SEO — lee filas 4-9, columnas A-M
+   Col 0=KPI, Col 1..12=Ene..Dic
    ══════════════════════════════════════════════════════════════════════════════ */
-async function readSeo(sheets, existing) {
+async function readSeo(sheets) {
   log('Leyendo SEO...');
-
-  // Filas 4-9, columnas A-M (KPI, Ene..Dic, Media, Tendencia)
   const rows = await readRange(sheets, 'SEO!A4:M9');
 
   const keys   = ['impresiones_organicas','clics_organicos','posicion_media','formularios','eventos','keywords_top10'];
   const colors = ['#c8e87a','#f24b3b','#ffb84d','#ece4d3','#7a9cc8','#ece4d3'];
-  const pretty = {
-    impresiones_organicas: 'impresiones orgánicas',
-    clics_organicos:       'clics orgánicos',
-    posicion_media:        'posición media',
-    formularios:           'formularios',
-    eventos:               'eventos interacción',
-    keywords_top10:        'keywords top 10',
-  };
 
   const goals   = {};
   const metrics = {};
 
   keys.forEach((key, i) => {
-    const row = rows[i] || [];
-    // col 0 = nombre KPI, col 1..12 = Ene..Dic
+    const row    = rows[i] || [];
     const values = [];
     for (let m = 0; m < 12; m++) {
       values.push(parseNum(row[m + 1]));
     }
-
-    const merged  = mergeHistory(values, existing?.seo?.metrics?.[key]?.values);
-    const lastVal = [...merged].reverse().find(v => v !== null) ?? 0;
-
-    // SEO no tiene targets
+    const lastVal = [...values].reverse().find(v => v !== null) ?? 0;
     goals[key]   = { current: lastVal };
-    if (key === 'posicion_media') goals[key].invert = true;
-    metrics[key] = { values: merged, color: colors[i] };
-    if (key === 'posicion_media') metrics[key].invert = true;
+    if (key === 'posicion_media') { goals[key].invert = true; }
+    metrics[key] = { values, color: colors[i] };
+    if (key === 'posicion_media') { metrics[key].invert = true; }
   });
 
-  log(`  → SEO OK`);
+  log('  → SEO OK');
   return { goals, metrics };
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   INFORMES
-   Estructura real del Sheets (hoja INFORMES):
-   Fila 1: título
-   Fila 2: separador
-   Fila 3: instrucciones
-   Fila 4: separador
-   Fila 5: cabecera (MES | INFORME_LINKEDIN | INFORME_SEO)
-   Filas 6-17: Enero 2026 ... Diciembre 2026
+   INFORMES — lee filas 6-17 (Enero..Diciembre)
+   Col 0=MES, Col 1=INFORME_LINKEDIN, Col 2=INFORME_SEO
    ══════════════════════════════════════════════════════════════════════════════ */
 async function readInformes(sheets, existing) {
   log('Leyendo INFORMES...');
-
   const rows = await readRange(sheets, 'INFORMES!A6:C17');
-  const mesActual = `${MONTH_FULL[new Date().getMonth()]} ${CFG.period}`;
 
-  let linkedin = '';
-  let seo      = '';
-
-  for (const row of rows) {
+  // Construir objeto con todos los meses: { "Enero 2026": { linkedin, seo }, ... }
+  const todos = {};
+  rows.forEach(row => {
     const mes = (row[0] || '').trim();
-    if (mes.toLowerCase() === mesActual.toLowerCase()) {
-      linkedin = (row[1] || '').trim();
-      seo      = (row[2] || '').trim();
-      break;
-    }
-  }
+    if (!mes) return;
+    todos[mes] = {
+      linkedin: (row[1] || '').trim(),
+      seo:      (row[2] || '').trim(),
+    };
+  });
 
-  // Si no hay informe para este mes, usar el último disponible
-  if (!linkedin && !seo) {
-    log(`  ⚠ Sin informe para ${mesActual}, usando el último disponible`);
-    for (let i = rows.length - 1; i >= 0; i--) {
-      if (rows[i]?.[1] || rows[i]?.[2]) {
-        linkedin = (rows[i][1] || '').trim();
-        seo      = (rows[i][2] || '').trim();
+  // Informe del mes actual
+  const mesActual = `${MONTH_FULL[currentMonthIdx()]} ${CFG.period}`;
+  const actual = todos[mesActual] || { linkedin: '', seo: '' };
+
+  // Fallback: último mes con texto si el actual está vacío
+  if (!actual.linkedin && !actual.seo) {
+    for (const mes of Object.keys(todos).reverse()) {
+      if (todos[mes].linkedin || todos[mes].seo) {
+        actual.linkedin = todos[mes].linkedin;
+        actual.seo      = todos[mes].seo;
         break;
       }
     }
   }
 
-  // Fallback: usar los del data.json existente
-  if (!linkedin) linkedin = existing?.informe_ia?.linkedin || '';
-  if (!seo)      seo      = existing?.informe_ia?.seo      || '';
+  // Fallback final: usar existing
+  if (!actual.linkedin) actual.linkedin = existing?.informe_ia?.linkedin || '';
+  if (!actual.seo)      actual.seo      = existing?.informe_ia?.seo      || '';
 
-  log(`  → LinkedIn: ${linkedin.length} chars, SEO: ${seo.length} chars`);
-  return { linkedin, seo };
+  log(`  → ${Object.keys(todos).length} meses en INFORMES`);
+  log(`  → Mes actual (${mesActual}): LinkedIn ${actual.linkedin.length} chars, SEO ${actual.seo.length} chars`);
+
+  return { actual, todos };
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   CONSTRUIR HISTÓRICO MENSUAL
+   Para cada mes con datos, construir el snapshot completo
+   ══════════════════════════════════════════════════════════════════════════════ */
+function buildHistorico(linkedin, seo, informes) {
+  const historico = {};
+
+  MONTHS.forEach((mes, idx) => {
+    const label = `${mes} ${CFG.period}`;
+    const labelFull = `${MONTH_FULL[idx]} ${CFG.period}`;
+
+    // Comprobar si hay algún dato para este mes
+    const tieneLinkedin = Object.values(linkedin.metrics).some(m => m.values[idx] !== null);
+    const tieneSeo      = Object.values(seo.metrics).some(m => m.values[idx] !== null);
+
+    if (!tieneLinkedin && !tieneSeo) return; // mes sin datos, no incluir
+
+    // Snapshot de goals para este mes
+    const liGoals   = {};
+    const seoGoals  = {};
+    const liMetrics = {};
+    const seoMetrics= {};
+
+    Object.keys(linkedin.goals).forEach(key => {
+      const val = linkedin.metrics[key]?.values[idx];
+      liGoals[key]   = { ...linkedin.goals[key], current: val !== null ? val : 0 };
+      liMetrics[key] = { ...linkedin.metrics[key] };
+    });
+
+    Object.keys(seo.goals).forEach(key => {
+      const val = seo.metrics[key]?.values[idx];
+      seoGoals[key]   = { ...seo.goals[key], current: val !== null ? val : 0 };
+      seoMetrics[key] = { ...seo.metrics[key] };
+    });
+
+    const informe = informes.todos[labelFull] || { linkedin: '', seo: '' };
+
+    historico[mes] = {
+      label,
+      linkedin: { goals: liGoals, metrics: liMetrics },
+      seo:      { goals: seoGoals, metrics: seoMetrics },
+      informe_ia: {
+        linkedin: informe.linkedin,
+        seo:      informe.seo,
+        generado: now(),
+      },
+    };
+  });
+
+  return historico;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -216,7 +218,7 @@ async function readInformes(sheets, existing) {
    ══════════════════════════════════════════════════════════════════════════════ */
 async function main() {
   log('═══════════════════════════════════════════');
-  log('hanson* · Actualizador Dashboard Welysis v3');
+  log('hanson* · Actualizador Dashboard Welysis v4');
   log('═══════════════════════════════════════════');
 
   if (!CFG.spreadsheetId) { log('ERROR: falta SPREADSHEET_ID'); process.exit(1); }
@@ -226,10 +228,13 @@ async function main() {
 
   const sheets = await getSheets();
   const [linkedin, seo, informes] = await Promise.all([
-    readLinkedin(sheets, existing),
-    readSeo(sheets, existing),
+    readLinkedin(sheets),
+    readSeo(sheets),
     readInformes(sheets, existing),
   ]);
+
+  const historico = buildHistorico(linkedin, seo, informes);
+  const mesActual = MONTHS[currentMonthIdx()];
 
   const data = {
     meta: {
@@ -237,10 +242,12 @@ async function main() {
       period:           CFG.period,
       updated:          now(),
       month_label:      monthLabel(),
+      month_current:    mesActual,
       tagline_linkedin: existing?.meta?.tagline_linkedin || 'los números no mienten, pero sí se maquillan*',
       tagline_seo:      existing?.meta?.tagline_seo      || 'google nos quiere, pero hay que currárselo*',
-      generated_by:     'hanson-updater v3',
+      generated_by:     'hanson-updater v4',
     },
+    // Datos del mes actual (compatibilidad con el dashboard)
     linkedin: {
       goals:     linkedin.goals,
       metrics:   linkedin.metrics,
@@ -252,16 +259,19 @@ async function main() {
       top_keywords: existing?.seo?.top_keywords || [],
     },
     informe_ia: {
-      linkedin: informes.linkedin,
-      seo:      informes.seo,
+      linkedin: informes.actual.linkedin,
+      seo:      informes.actual.seo,
       generado: new Date().toISOString(),
     },
+    // Histórico completo por mes
+    historico,
     projects: [],
   };
 
   const output = JSON.stringify(data, null, 2);
   fs.writeFileSync(CFG.outputJson, output, 'utf8');
   log(`✓ ${CFG.outputJson} actualizado (${(output.length/1024).toFixed(1)} KB)`);
+  log(`  → ${Object.keys(historico).length} meses en histórico`);
   log('Completado.');
 }
 
