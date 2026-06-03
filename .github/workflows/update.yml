@@ -1,0 +1,41 @@
+name: Actualizar dashboard mensual
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Crear service account JSON
+        run: echo '${{ secrets.GOOGLE_CREDENTIALS }}' > service-account.json
+
+      - name: Ejecutar actualizador
+        env:
+          GOOGLE_CREDENTIALS: ./service-account.json
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          OUTPUT_JSON: ./data.json
+          CLIENT_NAME: welysis
+          YEAR: "2026"
+        run: node update.js
+
+      - name: Commit y push del data.json actualizado
+        run: |
+          git config user.name "hanson-bot"
+          git config user.email "bot@hansonagency.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "data: actualización mensual $(date +'%Y-%m')"
+          git push
