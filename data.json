@@ -2,62 +2,340 @@
   "meta": {
     "client": "welysis",
     "period": "2026",
-    "updated": "2026-06-02",
-    "month_label": "Mayo 2026",
+    "updated": "2026-06-03",
+    "month_label": "Jun 2026",
     "tagline_linkedin": "mayo fue raro. los números dicen otra cosa*",
     "tagline_seo": "958 clics. google nos quiere, pero hay que currárselo*",
-    "generated_by": "hanson* manual v1"
+    "generated_by": "hanson-updater v2"
   },
   "linkedin": {
     "goals": {
-      "seguidores":      { "current": 1095, "target": 2500 },
-      "impresiones":     { "current": 2944, "target": 5000 },
-      "visitantes":      { "current": 143,  "target": 200  },
-      "visualizaciones": { "current": 0,    "target": 500  },
-      "reacciones":      { "current": 101,  "target": 120  },
-      "comentarios":     { "current": 1,    "target": 25   }
+      "seguidores": {
+        "current": 1095,
+        "target": 2000
+      },
+      "impresiones": {
+        "current": 2944,
+        "target": 2500
+      },
+      "visitantes": {
+        "current": 1.095,
+        "target": 100
+      },
+      "visualizaciones": {
+        "current": 2.944,
+        "target": 100
+      },
+      "reacciones": {
+        "current": 143,
+        "target": 50
+      },
+      "comentarios": {
+        "current": 0,
+        "target": 10
+      }
     },
     "metrics": {
-      "seguidores":      { "values": [1036, 1049, 1061, 1068, 1095, null, null, null, null, null, null, null], "color": "#f24b3b" },
-      "impresiones":     { "values": [1669, 1109, 1444, 3230, 2944, null, null, null, null, null, null, null], "color": "#ece4d3" },
-      "visitantes":      { "values": [56,   48,   48,   128,  143,  null, null, null, null, null, null, null], "color": "#c8e87a" },
-      "visualizaciones": { "values": [111,  102,  109,  178,  0,    null, null, null, null, null, null, null], "color": "#ffb84d" },
-      "reacciones":      { "values": [20,   35,   26,   61,   101,  null, null, null, null, null, null, null], "color": "#f24b3b" },
-      "comentarios":     { "values": [0,    0,    0,    5,    1,    null, null, null, null, null, null, null], "color": "#b8b3aa" }
+      "seguidores": {
+        "values": [
+          1036,
+          1049,
+          1061,
+          1068,
+          1095,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#f24b3b"
+      },
+      "impresiones": {
+        "values": [
+          1669,
+          1109,
+          1444,
+          3230,
+          2944,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ece4d3"
+      },
+      "visitantes": {
+        "values": [
+          2,
+          1.036,
+          1.049,
+          1.061,
+          1.068,
+          1.095,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#c8e87a"
+      },
+      "visualizaciones": {
+        "values": [
+          2.5,
+          1.669,
+          1.109,
+          1.444,
+          3.23,
+          2.944,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ffb84d"
+      },
+      "reacciones": {
+        "values": [
+          100,
+          56,
+          48,
+          48,
+          128,
+          143,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#f24b3b"
+      },
+      "comentarios": {
+        "values": [
+          100,
+          111,
+          102,
+          109,
+          178,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#b8b3aa"
+      }
     },
     "top_posts": [
-      { "date": "2026-05-19", "title": "Last week we attended the @Afr...", "impressions": 614, "reactions": 34, "comments": 0 },
-      { "date": "2026-05-15", "title": "Most water treatment facilitie...", "impressions": 349, "reactions": 13, "comments": 0 },
-      { "date": "2026-05-29", "title": "Most people think of beaches w...", "impressions": 311, "reactions": 10, "comments": 0 },
-      { "date": "2026-05-27", "title": "Engineering isn't just about s...", "impressions": 215, "reactions": 10, "comments": 1 },
-      { "date": "2026-05-07", "title": "Most industrial assets will be...", "impressions": 264, "reactions": 15, "comments": 0 }
+      {
+        "date": "2026-05-19",
+        "title": "Last week we attended the @Afr...",
+        "impressions": 614,
+        "reactions": 34,
+        "comments": 0
+      },
+      {
+        "date": "2026-05-15",
+        "title": "Most water treatment facilitie...",
+        "impressions": 349,
+        "reactions": 13,
+        "comments": 0
+      },
+      {
+        "date": "2026-05-29",
+        "title": "Most people think of beaches w...",
+        "impressions": 311,
+        "reactions": 10,
+        "comments": 0
+      },
+      {
+        "date": "2026-05-27",
+        "title": "Engineering isn't just about s...",
+        "impressions": 215,
+        "reactions": 10,
+        "comments": 1
+      },
+      {
+        "date": "2026-05-07",
+        "title": "Most industrial assets will be...",
+        "impressions": 264,
+        "reactions": 15,
+        "comments": 0
+      }
     ]
   },
   "seo": {
     "goals": {
-      "sesiones":       { "current": 1081, "target": 2000 },
-      "posicion_media": { "current": 8.56, "target": 5,   "invert": true },
-      "clics_organicos":{ "current": 958,  "target": 2000 },
-      "keywords_top10": { "current": 111,  "target": 200  }
+      "sesiones": {
+        "current": 1081
+      },
+      "clics_organicos": {
+        "current": 958
+      },
+      "posicion_media": {
+        "current": 137.164,
+        "invert": true
+      },
+      "formularios": {
+        "current": 958
+      },
+      "eventos": {
+        "current": 8.56
+      },
+      "keywords_top10": {
+        "current": 21
+      }
     },
     "metrics": {
-      "sesiones":        { "values": [null, null, null, null, 1081, null, null, null, null, null, null, null], "color": "#c8e87a" },
-      "posicion_media":  { "values": [6.4,  5.9,  5.4,  6.0,  8.56, null, null, null, null, null, null, null], "color": "#ffb84d", "invert": true },
-      "clics_organicos": { "values": [701,  789,  773,  962,  958,  null, null, null, null, null, null, null], "color": "#f24b3b" },
-      "keywords_top10":  { "values": [62,   71,   84,   111,  111,  null, null, null, null, null, null, null], "color": "#ece4d3" }
+      "sesiones": {
+        "values": [
+          null,
+          null,
+          null,
+          null,
+          1081,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#c8e87a"
+      },
+      "clics_organicos": {
+        "values": [
+          701,
+          789,
+          773,
+          962,
+          958,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#f24b3b"
+      },
+      "posicion_media": {
+        "values": [
+          131.168,
+          158.317,
+          134.979,
+          151.232,
+          137.164,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ffb84d",
+        "invert": true
+      },
+      "formularios": {
+        "values": [
+          701,
+          789,
+          773,
+          962,
+          958,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ece4d3"
+      },
+      "eventos": {
+        "values": [
+          6.4,
+          5.9,
+          5.4,
+          6,
+          8.56,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#7a9cc8"
+      },
+      "keywords_top10": {
+        "values": [
+          4,
+          5,
+          4,
+          6,
+          21,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ece4d3"
+      }
     },
     "top_keywords": [
-      { "keyword": "chlor-alkali plants",          "position": 4,  "volume": 880 },
-      { "keyword": "caustic soda production",       "position": 5,  "volume": 720 },
-      { "keyword": "electrolysis water purification","position": 2, "volume": 590 },
-      { "keyword": "sodium hypochlorite drinking water","position": 6,"volume": 480 },
-      { "keyword": "welysis",                       "position": 1,  "volume": 90  }
+      {
+        "keyword": "chlor-alkali plants",
+        "position": 4,
+        "volume": 880
+      },
+      {
+        "keyword": "caustic soda production",
+        "position": 5,
+        "volume": 720
+      },
+      {
+        "keyword": "electrolysis water purification",
+        "position": 2,
+        "volume": 590
+      },
+      {
+        "keyword": "sodium hypochlorite drinking water",
+        "position": 6,
+        "volume": 480
+      },
+      {
+        "keyword": "welysis",
+        "position": 1,
+        "volume": 90
+      }
     ]
   },
   "informe_ia": {
-    "linkedin": "Mayo ha sido un mes con datos para analizar con calma. Los seguidores siguen creciendo, ya vamos por **1.095**, y los visitantes al perfil han subido a **143**, el mejor dato desde que empezamos. Pero hay una métrica que llama la atención: las impresiones de contenido bajan a 1.753 en posts propios, aunque el engagement se ha disparado a **+314%**. Eso significa una cosa muy concreta: publicamos menos veces (5 posts), pero lo que publicamos ha conectado mucho mejor. El post del evento en África llegó a **614 impresiones y 34 reacciones**, que para el volumen de seguidores que tenemos es un resultado muy sólido.\n\nLa parte que hay que trabajar es la constancia. 5 posts en un mes es poco para un perfil que todavía está construyendo masa crítica. Las reacciones están en **101**, casi en el objetivo anual de 120 y solo en mayo, lo que confirma que cuando el contenido es bueno la audiencia responde. El problema no es la calidad, es el volumen. Necesitamos mantener ese nivel de contenido pero publicando más.\n\nPara junio la prioridad es clara: mantener el estilo de los posts que mejor han funcionado (eventos reales, contexto industrial, contenido cercano) y aumentar la cadencia a al menos 8-10 publicaciones. El objetivo de **2.500 seguidores** está al 44% del año, hay que acelerar. El material está, la estrategia funciona, solo falta más gas*",
-    "seo": "Los números de mayo hablan claro: **958 clics orgánicos** y **137.164 impresiones** entre Google y Bing. El SEO es el principal motor de Welysis en digital, con el **76% del tráfico total** viniendo de búsqueda orgánica. Eso no es casualidad, es el resultado de meses trabajando contenido técnico en tres idiomas. Hay **111 keywords en top 10**, el mejor dato del año, y la web ya aparece en respuestas de ChatGPT, Claude, Perplexity y Gemini, algo que en un sector B2B industrial vale mucho.\n\nEl punto que necesita atención es la posición media: **8,56**. Ha empeorado respecto a los meses anteriores (veníamos de 5,4 en marzo), lo que indica que hay más competencia o que algunas páginas han perdido posiciones. No es alarmante, pero hay que vigilarlo. El CTR combinado está en **0,70%**, que con ese volumen de impresiones tiene mucho margen de mejora. Google ya muestra la web, pero los usuarios no están clicando tanto como deberían. El problema suele estar en los títulos y metadescripciones.\n\nLa prioridad para junio es una: mejorar los títulos y descripciones de las páginas que ya tienen muchas impresiones pero poco CTR, especialmente en francés e inglés. Páginas como la de sosa cáustica en francés o caustic soda en inglés ya están en primera página de Google, pero el snippet no invita suficientemente al clic. Con ese cambio, el tráfico puede crecer sin publicar una sola línea nueva de contenido*",
-    "generado": "2026-06-02T10:00:00Z"
+    "linkedin": "",
+    "seo": "",
+    "generado": "2026-06-03T00:29:24.063Z"
   },
   "projects": []
 }
