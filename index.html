@@ -94,7 +94,7 @@
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero h1 .ast { color: var(--accent); font-weight: 800; }
   .hero p { margin: 0; max-width: 56ch; color: var(--ink-dim); font-size: 15px; line-height: 1.55; }
-  .hero-side { display: flex; flex-direction: column; gap: 12px; align-self: end; }
+  .hero-side { display: flex; flex-direction: column; gap: 12px; align-self: end; align-items: flex-end; }
   .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
   .pill {
     padding: 7px 12px; border: 1px solid var(--line-2); border-radius: 999px;
@@ -813,8 +813,8 @@ function render() {
       <div class="hero-side">
         <div class="pill-row">
           ${isRrss
-            ? `<span class="pill solid">linkedin · activo</span><span class="pill cream">fuente · metricool</span>`
-            : `<span class="pill solid">search console · activo</span><span class="pill">ahrefs · activo</span>`
+            ? `<span class="pill solid">linkedin · activo</span>`
+            : `<span class="pill solid">search console · activo</span>`
           }
         </div>
       </div>
