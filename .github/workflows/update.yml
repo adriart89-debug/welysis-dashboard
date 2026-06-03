@@ -30,7 +30,7 @@ jobs:
           OUTPUT_JSON: ./data.json
           CLIENT_NAME: welysis
           YEAR: "2026"
-        run: node update.js
+        run: node diagnostico.js
 
       - name: Commit y push del data.json actualizado
         run: |
