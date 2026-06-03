@@ -680,20 +680,24 @@ function marqueeContent(metrics) {
    ══════════════════════════════════════════════ */
 function getActiveMonthData() {
   const mes = activeMonth || DATA.meta.month_current;
-  console.log('[debug] mes activo:', mes, '| activeMonth:', activeMonth, '| month_current:', DATA.meta.month_current);
 
   if (mes && DATA.historico?.[mes]) {
     const h = DATA.historico[mes];
-    console.log('[debug] historico encontrado para', mes, '| informe_li:', (h.informe_ia?.linkedin||'').length, 'chars | informe_seo:', (h.informe_ia?.seo||'').length, 'chars');
+    // Si el historico tiene informe con texto usarlo, si no usar el global
+    const informeLi  = h.informe_ia?.linkedin || (mes === DATA.meta.month_current ? DATA.informe_ia?.linkedin : '');
+    const informeSeo = h.informe_ia?.seo      || (mes === DATA.meta.month_current ? DATA.informe_ia?.seo      : '');
     return {
-      linkedin:   h.linkedin   || DATA.linkedin,
-      seo:        h.seo        || DATA.seo,
-      informe_ia: h.informe_ia || DATA.informe_ia,
-      label:      h.label      || DATA.meta.month_label,
+      linkedin:   h.linkedin || DATA.linkedin,
+      seo:        h.seo      || DATA.seo,
+      informe_ia: {
+        linkedin: informeLi,
+        seo:      informeSeo,
+        generado: h.informe_ia?.generado || DATA.informe_ia?.generado,
+      },
+      label: h.label || DATA.meta.month_label,
     };
   }
 
-  console.log('[debug] sin historico para', mes, '| usando datos globales | informe_li:', (DATA.informe_ia?.linkedin||'').length, 'chars');
   return {
     linkedin:   DATA.linkedin,
     seo:        DATA.seo,
