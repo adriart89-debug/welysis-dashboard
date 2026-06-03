@@ -342,6 +342,27 @@
     .goals-grid { grid-template-columns: 1fr; }
   }
 
+
+  /* ─── SELECTOR DE MES ─── */
+  .month-selector {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .month-btn {
+    padding: 5px 10px; border-radius: 4px; cursor: pointer;
+    border: 1px solid var(--line-2); background: transparent;
+    color: var(--ink-dim); font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    transition: all .15s;
+  }
+  .month-btn:hover { background: var(--bg-3); color: var(--ink); }
+  .month-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .month-btn.no-data { opacity: 0.3; cursor: default; pointer-events: none; }
+  .month-nav { color: var(--ink-mute); cursor: pointer; padding: 4px 8px; border: none;
+    background: transparent; font-size: 16px; transition: color .15s; }
+  .month-nav:hover { color: var(--ink); }
+
   /* SVG chart helpers */
   .axis-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.08em; }
   .grid-line { stroke: #2a2b2a; stroke-width: 1; stroke-dasharray: 2 3; }
@@ -379,7 +400,8 @@ const ICONS = {
 /* ══════════════════════════════════════════════
    STATE
    ══════════════════════════════════════════════ */
-let DATA = null;
+let DATA        = null;
+let activeMonth = null;
 let activeTab = 'rrss';
 
 /* ══════════════════════════════════════════════
@@ -652,16 +674,55 @@ function marqueeContent(metrics) {
 /* ══════════════════════════════════════════════
    RENDER
    ══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   RESOLVER DATOS DEL MES ACTIVO
+   ══════════════════════════════════════════════ */
+function getActiveMonthData() {
+  if (!activeMonth || !DATA.historico?.[activeMonth]) {
+    return {
+      linkedin:   DATA.linkedin,
+      seo:        DATA.seo,
+      informe_ia: DATA.informe_ia,
+      label:      DATA.meta.month_label,
+    };
+  }
+  const h = DATA.historico[activeMonth];
+  return {
+    linkedin:   h.linkedin,
+    seo:        h.seo,
+    informe_ia: h.informe_ia,
+    label:      h.label,
+  };
+}
+
+function buildMonthSelector() {
+  const historico = DATA.historico || {};
+  const meses = Object.keys(historico);
+  if (meses.length === 0) return '';
+
+  const current = activeMonth || DATA.meta.month_current || DATA.meta.month_label.split(' ')[0];
+
+  const btns = meses.map(mes => {
+    const isActive = mes === current || (!activeMonth && mes === DATA.meta.month_current);
+    return `<button class="month-btn ${isActive ? 'active' : ''}" data-month="${mes}">${mes}</button>`;
+  }).join('');
+
+  return `<div class="month-selector">${btns}</div>`;
+}
+
 function render() {
-  const isRrss = activeTab === 'rrss';
-  const metrics = isRrss ? DATA.linkedin.metrics : DATA.seo.metrics;
-  const goals   = isRrss ? DATA.linkedin.goals   : DATA.seo.goals;
-  const informe = isRrss ? DATA.informe_ia.linkedin : DATA.informe_ia.seo;
-  const projects = DATA.projects.filter(p => (p.area||'rrss') === activeTab);
+  const monthData = getActiveMonthData();
+  const isRrss  = activeTab === 'rrss';
+  const metrics = isRrss ? monthData.linkedin.metrics : monthData.seo.metrics;
+  const goals   = isRrss ? monthData.linkedin.goals   : monthData.seo.goals;
+  const informe = isRrss ? monthData.informe_ia.linkedin : monthData.informe_ia.seo;
+  const projects  = DATA.projects.filter(p => (p.area||'rrss') === activeTab);
   const rrssCount = DATA.projects.filter(p => (p.area||'rrss')==='rrss').length;
   const seoCount  = DATA.projects.filter(p => p.area==='seo').length;
-  const genDate = DATA.informe_ia.generado ? fmtDate(DATA.informe_ia.generado.slice(0,10)) : '—';
-  const nMetrics = Object.keys(metrics).length;
+  const genDate   = monthData.informe_ia?.generado ? fmtDate(monthData.informe_ia.generado.slice(0,10)) : '—';
+  const nMetrics  = Object.keys(metrics).length;
+  const monthLabel = monthData.label || DATA.meta.month_label;
 
   // Top posts / keywords table
   let extraTable = '';
@@ -710,8 +771,7 @@ function render() {
       <div class="client">cliente · <b>${DATA.meta.client}</b></div>
       <div class="spacer"></div>
       <div class="meta">
-        <span><span class="live-dot"></span>${DATA.meta.month_label}</span>
-        <span>periodo · <b>${DATA.meta.period}</b></span>
+        ${buildMonthSelector()}
         <span>actualizado · <b>${fmtDate(DATA.meta.updated)}</b></span>
       </div>
     </header>
@@ -725,7 +785,7 @@ function render() {
       <div>
         <h1>
           <span class="row" style="font-size: clamp(52px,6vw,80px); letter-spacing:-0.04em"><em>${DATA.meta.client}</em><span class="ast">*</span></span>
-          <span class="row" style="font-size: clamp(22px,2.8vw,36px); font-weight:600; color:var(--ink); letter-spacing:-0.02em; margin-top:6px; display:block">${DATA.meta.month_label}.</span>
+          <span class="row" style="font-size: clamp(22px,2.8vw,36px); font-weight:600; color:var(--ink); letter-spacing:-0.02em; margin-top:6px; display:block">${monthLabel}.</span>
           <span class="row hero-tagline" style="font-size: clamp(14px,1.6vw,20px); font-weight:600; color:var(--accent); letter-spacing:-0.01em; margin-top:10px; display:block">${isRrss ? DATA.meta.tagline_linkedin || 'los números no mienten, pero sí se maquillan*' : DATA.meta.tagline_seo || 'google te quiere, pero hay que currárselo*'}</span>
         </h1>
         <p style="margin-top:20px">${isRrss
@@ -751,7 +811,7 @@ function render() {
       </div>
       <div class="informe-ia">
         <div class="informe-ia-header">
-          <span class="informe-ia-title">${isRrss?'linkedin':'seo'} · ${DATA.meta.month_label}</span>
+          <span class="informe-ia-title">${isRrss?'linkedin':'seo'} · ${monthLabel}</span>
           <span class="informe-ia-meta">actualizado · ${genDate}</span>
         </div>
         <div class="informe-ia-body">${parseMarkdown(informe)}</div>
@@ -803,13 +863,22 @@ function render() {
 
     <footer class="footer">
       <div>hanson<span style="color:var(--accent)">*</span> · agencia de publicidad leal</div>
-      <div>actualizado automáticamente · ${DATA.meta.month_label}</div>
+      <div>actualizado automáticamente · ${DATA.meta.updated}</div>
     </footer>
   `;
 
   document.querySelectorAll('.tab').forEach(t => {
     t.addEventListener('click', () => {
       activeTab = t.dataset.tab;
+      render();
+    });
+  });
+
+  // Selector de mes
+  document.querySelectorAll('.month-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mes = btn.dataset.month;
+      activeMonth = (activeMonth === mes) ? null : mes;
       render();
     });
   });
