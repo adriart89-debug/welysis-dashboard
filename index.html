@@ -6,8 +6,16 @@
 <title>Dashboard Welysis · hanson*</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Dropkicker';
+    src: url('./fonts/Dropkicker-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
   :root {
     --bg: #0e0f0e;
     --bg-2: #161716;
@@ -29,7 +37,7 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Archivo', system-ui, sans-serif;
+   font-family: 'Montserrat', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
@@ -47,7 +55,7 @@
     background: rgba(14,15,14,0.92);
     backdrop-filter: blur(14px);
   }
-  .brand { display: flex; align-items: baseline; gap: 2px; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+  .brand { display: flex; align-items: baseline; gap: 2px; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; font-family: 'Dropkicker', sans-serif; }
   .brand .star { color: var(--accent); font-size: 26px; line-height: 0; transform: translateY(2px); display: inline-block; }
   .brand .dot { color: var(--ink-mute); margin: 0 10px; font-weight: 400; }
   .client { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
@@ -80,6 +88,7 @@
     font-size: clamp(36px, 4.4vw, 58px);
     line-height: 1.02; letter-spacing: -0.035em;
     font-weight: 800; margin: 0 0 22px 0;
+    font-family: 'Montserrat', sans-serif;
   }
   .hero h1 .row { display: block; }
   .hero h1 em { font-style: normal; color: var(--accent); }
@@ -163,10 +172,11 @@
     margin-left: auto; font-family: 'JetBrains Mono', monospace;
     font-size: 10px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.06em;
   }
-  .informe-ia-body {
+ .informe-ia-body {
     padding: 24px;
     font-size: 15px; line-height: 1.7; color: var(--ink-dim);
     max-width: 100%;
+    font-family: 'Playfair Display', Georgia, serif;
   }
   .informe-ia-body p { margin: 0 0 14px 0; }
   .informe-ia-body p:last-child { margin-bottom: 0; }
@@ -663,7 +673,7 @@ function projectRow(p) {
 }
 
 function marqueeContent() {
-  const unit = `<span class="ast">*</span><span class="hs">hanson style</span><span class="ast">*</span><span class="hs">hanson style</span><span class="ast">*</span><span class="hs">hanson style</span><span class="ast">*</span><span class="hs">hanson style</span><span class="ast">*</span><span class="hs">hanson style</span><span class="ast">*</span><span class="hs">hanson style</span>`;
+  const unit = `<span class="ast">*</span><span class="hs">así somos</span><span class="ast">*</span><span class="hs">así somos</span><span class="ast">*</span><span class="hs">así somos</span><span class="ast">*</span><span class="hs">así somos</span><span class="ast">*</span><span class="hs">así somos</span><span class="ast">*</span><span class="hs">así somos</span>`;
   return unit + unit;
 }
 
