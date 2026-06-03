@@ -185,12 +185,16 @@ function buildHistorico(linkedin, seo, informes) {
     });
 
     const informe = informes.todos[mes] || { linkedin: '', seo: '' };
+    // Preservar informe existente si el Sheets no devuelve texto
+    const existingInforme = existing?.historico?.[mes]?.informe_ia || {};
+    const informeLi  = informe.linkedin  || existingInforme.linkedin  || '';
+    const informeSeo = informe.seo       || existingInforme.seo       || '';
 
     historico[mes] = {
       label,
       linkedin:   { goals: liGoals,  metrics: liMetrics  },
       seo:        { goals: seoGoals, metrics: seoMetrics },
-      informe_ia: { linkedin: informe.linkedin, seo: informe.seo, generado: now() },
+      informe_ia: { linkedin: informeLi, seo: informeSeo, generado: now() },
     };
   });
 
@@ -241,8 +245,8 @@ async function main() {
       top_keywords: existing?.seo?.top_keywords || [],
     },
     informe_ia: {
-      linkedin: informes.actual.linkedin,
-      seo:      informes.actual.seo,
+      linkedin: informes.actual.linkedin || existing?.informe_ia?.linkedin || '',
+      seo:      informes.actual.seo      || existing?.informe_ia?.seo      || '',
       generado: new Date().toISOString(),
     },
     historico,
