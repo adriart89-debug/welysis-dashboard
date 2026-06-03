@@ -578,7 +578,7 @@ function goalCard(key, g) {
       </div>
       <div class="goal-bar"><span style="width:${pct}%"></span></div>
       <div class="goal-foot">
-        <span>${inv?'objetivo · bajar':'objetivo anual'}</span>
+        <span>${inv?'objetivo · bajar':'objetivo'}</span>
         <span>${done?'✓ conseguido':`faltan <span class="gap-num">${fmt(Math.abs(gap))}</span>`}</span>
       </div>
     </div>`;
@@ -729,7 +729,7 @@ function render() {
           <span class="row hero-tagline" style="font-size: clamp(14px,1.6vw,20px); font-weight:600; color:var(--accent); letter-spacing:-0.01em; margin-top:10px; display:block">${isRrss ? DATA.meta.tagline_linkedin || 'los números no mienten, pero sí se maquillan*' : DATA.meta.tagline_seo || 'google te quiere, pero hay que currárselo*'}</span>
         </h1>
         <p style="margin-top:20px">${isRrss
-          ? 'objetivos, números y gráficas de linkedin. todo en un sitio. si cambia algo al mes que viene este dashboard se actualiza solo.'
+          ? 'objetivos, números y gráficas de linkedin. todo en un sitio.'
           : 'sesiones orgánicas, posiciones, backlinks. lo que de verdad mete tráfico desde google. nada de vanity metrics.'
         }</p>
       </div>
