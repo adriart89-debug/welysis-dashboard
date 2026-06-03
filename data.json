@@ -3,11 +3,11 @@
     "client": "welysis",
     "period": "2026",
     "updated": "2026-06-03",
-    "month_label": "Jun 2026",
-    "month_current": "Jun",
+    "month_label": "May 2026",
+    "month_current": "May",
     "tagline_linkedin": "la gente nos vio, nos siguió y hasta le dio like. no está mal*",
     "tagline_seo": "google nos tiene en el radar. y eso no es casualidad*",
-    "generated_by": "hanson-updater v5"
+    "generated_by": "hanson-updater v6"
   },
   "linkedin": {
     "goals": {
@@ -336,7 +336,7 @@
   "informe_ia": {
     "linkedin": "",
     "seo": "",
-    "generado": "2026-06-03T07:12:32.876Z"
+    "generado": "2026-06-03T07:28:08.561Z"
   },
   "historico": {
     "Ene": {
