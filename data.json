@@ -11,278 +11,1672 @@
   },
   "linkedin": {
     "goals": {
-      "seguidores":      { "current": 1095, "target": 2000 },
-      "impresiones":     { "current": 2944, "target": 2500 },
-      "visitantes":      { "current": 143,  "target": 100  },
-      "visualizaciones": { "current": 0,    "target": 100  },
-      "reacciones":      { "current": 101,  "target": 50   },
-      "comentarios":     { "current": 1,    "target": 10   }
+      "seguidores": {
+        "current": 1095,
+        "target": 2000
+      },
+      "impresiones": {
+        "current": 2944,
+        "target": 2500
+      },
+      "visitantes": {
+        "current": 143,
+        "target": 100
+      },
+      "visualizaciones": {
+        "current": 0,
+        "target": 100
+      },
+      "reacciones": {
+        "current": 101,
+        "target": 50
+      },
+      "comentarios": {
+        "current": 1,
+        "target": 10
+      }
     },
     "metrics": {
-      "seguidores":      { "values": [1036,1049,1061,1068,1095,null,null,null,null,null,null,null], "color": "#f24b3b" },
-      "impresiones":     { "values": [1669,1109,1444,3230,2944,null,null,null,null,null,null,null], "color": "#ece4d3" },
-      "visitantes":      { "values": [56,48,48,128,143,null,null,null,null,null,null,null], "color": "#c8e87a" },
-      "visualizaciones": { "values": [111,102,109,178,0,null,null,null,null,null,null,null], "color": "#ffb84d" },
-      "reacciones":      { "values": [20,35,26,61,101,null,null,null,null,null,null,null], "color": "#f24b3b" },
-      "comentarios":     { "values": [0,0,0,5,1,null,null,null,null,null,null,null], "color": "#b8b3aa" }
+      "seguidores": {
+        "values": [
+          1036,
+          1049,
+          1061,
+          1068,
+          1095,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#f24b3b"
+      },
+      "impresiones": {
+        "values": [
+          1669,
+          1109,
+          1444,
+          3230,
+          2944,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ece4d3"
+      },
+      "visitantes": {
+        "values": [
+          56,
+          48,
+          48,
+          128,
+          143,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#c8e87a"
+      },
+      "visualizaciones": {
+        "values": [
+          111,
+          102,
+          109,
+          178,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ffb84d"
+      },
+      "reacciones": {
+        "values": [
+          20,
+          35,
+          26,
+          61,
+          101,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#f24b3b"
+      },
+      "comentarios": {
+        "values": [
+          0,
+          0,
+          0,
+          5,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#b8b3aa"
+      }
     },
     "top_posts": [
-      { "date": "2026-05-19", "title": "Last week we attended the @Afr...", "impressions": 614, "reactions": 34, "comments": 0 },
-      { "date": "2026-05-15", "title": "Most water treatment facilitie...", "impressions": 349, "reactions": 13, "comments": 0 },
-      { "date": "2026-05-29", "title": "Most people think of beaches w...", "impressions": 311, "reactions": 10, "comments": 0 },
-      { "date": "2026-05-27", "title": "Engineering isn't just about s...", "impressions": 215, "reactions": 10, "comments": 1 },
-      { "date": "2026-05-07", "title": "Most industrial assets will be...", "impressions": 264, "reactions": 15, "comments": 0 }
+      {
+        "date": "2026-05-19",
+        "title": "Last week we attended the @Afr...",
+        "impressions": 614,
+        "reactions": 34,
+        "comments": 0
+      },
+      {
+        "date": "2026-05-15",
+        "title": "Most water treatment facilitie...",
+        "impressions": 349,
+        "reactions": 13,
+        "comments": 0
+      },
+      {
+        "date": "2026-05-29",
+        "title": "Most people think of beaches w...",
+        "impressions": 311,
+        "reactions": 10,
+        "comments": 0
+      },
+      {
+        "date": "2026-05-27",
+        "title": "Engineering isn't just about s...",
+        "impressions": 215,
+        "reactions": 10,
+        "comments": 1
+      },
+      {
+        "date": "2026-05-07",
+        "title": "Most industrial assets will be...",
+        "impressions": 264,
+        "reactions": 15,
+        "comments": 0
+      }
     ]
   },
   "seo": {
     "goals": {
-      "impresiones_organicas": { "current": 137164 },
-      "clics_organicos":       { "current": 958 },
-      "posicion_media":        { "current": 8.56, "invert": true },
-      "formularios":           { "current": 21 },
-      "eventos":               { "current": 1469 },
-      "keywords_top10":        { "current": 111 }
+      "impresiones_organicas": {
+        "current": 137164
+      },
+      "clics_organicos": {
+        "current": 958
+      },
+      "posicion_media": {
+        "current": 8.56,
+        "invert": true
+      },
+      "formularios": {
+        "current": 21
+      },
+      "eventos": {
+        "current": 1469
+      },
+      "keywords_top10": {
+        "current": 111
+      }
     },
     "metrics": {
-      "impresiones_organicas": { "values": [131168,158317,134979,151232,137164,null,null,null,null,null,null,null], "color": "#c8e87a" },
-      "clics_organicos":       { "values": [701,789,773,962,958,null,null,null,null,null,null,null], "color": "#f24b3b" },
-      "posicion_media":        { "values": [6.4,5.9,5.4,6.0,8.56,null,null,null,null,null,null,null], "color": "#ffb84d", "invert": true },
-      "formularios":           { "values": [4,5,4,6,21,null,null,null,null,null,null,null], "color": "#ece4d3" },
-      "eventos":               { "values": [1412,1536,1485,1410,1469,null,null,null,null,null,null,null], "color": "#7a9cc8" },
-      "keywords_top10":        { "values": [62,71,84,111,111,null,null,null,null,null,null,null], "color": "#ece4d3" }
+      "impresiones_organicas": {
+        "values": [
+          131168,
+          158317,
+          134979,
+          151232,
+          137164,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#c8e87a"
+      },
+      "clics_organicos": {
+        "values": [
+          701,
+          789,
+          773,
+          962,
+          958,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#f24b3b"
+      },
+      "posicion_media": {
+        "values": [
+          6.4,
+          5.9,
+          5.4,
+          6,
+          8.56,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ffb84d",
+        "invert": true
+      },
+      "formularios": {
+        "values": [
+          4,
+          5,
+          4,
+          6,
+          21,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ece4d3"
+      },
+      "eventos": {
+        "values": [
+          1412,
+          1536,
+          1485,
+          1410,
+          1469,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#7a9cc8"
+      },
+      "keywords_top10": {
+        "values": [
+          62,
+          71,
+          84,
+          111,
+          111,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "color": "#ece4d3"
+      }
     },
     "top_keywords": [
-      { "keyword": "chlor-alkali plants",           "position": 4, "volume": 880 },
-      { "keyword": "caustic soda production",        "position": 5, "volume": 720 },
-      { "keyword": "electrolysis water purification","position": 2, "volume": 590 },
-      { "keyword": "sodium hypochlorite drinking water","position": 6,"volume": 480 },
-      { "keyword": "welysis",                        "position": 1, "volume": 90  }
+      {
+        "keyword": "chlor-alkali plants",
+        "position": 4,
+        "volume": 880
+      },
+      {
+        "keyword": "caustic soda production",
+        "position": 5,
+        "volume": 720
+      },
+      {
+        "keyword": "electrolysis water purification",
+        "position": 2,
+        "volume": 590
+      },
+      {
+        "keyword": "sodium hypochlorite drinking water",
+        "position": 6,
+        "volume": 480
+      },
+      {
+        "keyword": "welysis",
+        "position": 1,
+        "volume": 90
+      }
     ]
   },
   "informe_ia": {
     "linkedin": "Mayo ha sido un mes con datos para analizar con calma. Los seguidores siguen creciendo, ya vamos por **1.095**, y los visitantes al perfil han subido a **143**, el mejor dato desde que empezamos. Pero hay una métrica que llama la atención: las impresiones de contenido bajan a 1.753 en posts propios, aunque el engagement se ha disparado a **+314%**. Eso significa una cosa muy concreta: publicamos menos veces (5 posts), pero lo que publicamos ha conectado mucho mejor. El post del evento en África llegó a **614 impresiones y 34 reacciones**, que para el volumen de seguidores que tenemos es un resultado muy sólido.\n\nLa parte que hay que trabajar es la constancia. 5 posts en un mes es poco para un perfil que todavía está construyendo masa crítica. Las reacciones están en **101**, casi en el objetivo anual de 120 y solo en mayo, lo que confirma que cuando el contenido es bueno la audiencia responde. El problema no es la calidad, es el volumen. Necesitamos mantener ese nivel de contenido pero publicando más.\n\nPara junio la prioridad es clara: mantener el estilo de los posts que mejor han funcionado (eventos reales, contexto industrial, contenido cercano) y aumentar la cadencia a al menos 8-10 publicaciones. El objetivo de **2.500 seguidores** está al 44% del año, hay que acelerar. El material está, la estrategia funciona, solo falta más gas*",
     "seo": "Los números de mayo hablan claro: **958 clics orgánicos** y **137.164 impresiones** entre Google y Bing. El SEO es el principal motor de Welysis en digital, con el **76% del tráfico total** viniendo de búsqueda orgánica. Eso no es casualidad, es el resultado de meses trabajando contenido técnico en tres idiomas. Hay **111 keywords en top 10**, el mejor dato del año, y la web ya aparece en respuestas de ChatGPT, Claude, Perplexity y Gemini, algo que en un sector B2B industrial vale mucho.\n\nEl punto que necesita atención es la posición media: **8,56**. Ha empeorado respecto a los meses anteriores (veníamos de 5,4 en marzo), lo que indica que hay más competencia o que algunas páginas han perdido posiciones. No es alarmante, pero hay que vigilarlo. El CTR combinado está en **0,70%**, que con ese volumen de impresiones tiene mucho margen de mejora. Google ya muestra la web, pero los usuarios no están clicando tanto como deberían.\n\nLa prioridad para junio es una: mejorar los títulos y descripciones de las páginas que ya tienen muchas impresiones pero poco CTR, especialmente en francés e inglés. Con ese cambio, el tráfico puede crecer sin publicar una sola línea nueva de contenido*",
-    "generado": "2026-06-03T00:00:00Z"
+    "generado": "2026-06-03T08:01:28.953Z"
   },
   "historico": {
     "Ene": {
       "label": "Ene 2026",
       "linkedin": {
         "goals": {
-          "seguidores":      { "current": 1036, "target": 2000 },
-          "impresiones":     { "current": 1669, "target": 2500 },
-          "visitantes":      { "current": 56,   "target": 100  },
-          "visualizaciones": { "current": 111,  "target": 100  },
-          "reacciones":      { "current": 20,   "target": 50   },
-          "comentarios":     { "current": 0,    "target": 10   }
+          "seguidores": {
+            "current": 1036,
+            "target": 2000
+          },
+          "impresiones": {
+            "current": 1669,
+            "target": 2500
+          },
+          "visitantes": {
+            "current": 56,
+            "target": 100
+          },
+          "visualizaciones": {
+            "current": 111,
+            "target": 100
+          },
+          "reacciones": {
+            "current": 20,
+            "target": 50
+          },
+          "comentarios": {
+            "current": 0,
+            "target": 10
+          }
         },
         "metrics": {
-          "seguidores":      { "values": [1036,1049,1061,1068,1095,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "impresiones":     { "values": [1669,1109,1444,3230,2944,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "visitantes":      { "values": [56,48,48,128,143,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "visualizaciones": { "values": [111,102,109,178,0,null,null,null,null,null,null,null], "color": "#ffb84d" },
-          "reacciones":      { "values": [20,35,26,61,101,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "comentarios":     { "values": [0,0,0,5,1,null,null,null,null,null,null,null], "color": "#b8b3aa" }
+          "seguidores": {
+            "values": [
+              1036,
+              1049,
+              1061,
+              1068,
+              1095,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "impresiones": {
+            "values": [
+              1669,
+              1109,
+              1444,
+              3230,
+              2944,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "visitantes": {
+            "values": [
+              56,
+              48,
+              48,
+              128,
+              143,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "visualizaciones": {
+            "values": [
+              111,
+              102,
+              109,
+              178,
+              0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d"
+          },
+          "reacciones": {
+            "values": [
+              20,
+              35,
+              26,
+              61,
+              101,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "comentarios": {
+            "values": [
+              0,
+              0,
+              0,
+              5,
+              1,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#b8b3aa"
+          }
         }
       },
       "seo": {
         "goals": {
-          "impresiones_organicas": { "current": 131168 },
-          "clics_organicos":       { "current": 701 },
-          "posicion_media":        { "current": 6.4, "invert": true },
-          "formularios":           { "current": 4 },
-          "eventos":               { "current": 1412 },
-          "keywords_top10":        { "current": 62 }
+          "impresiones_organicas": {
+            "current": 131168
+          },
+          "clics_organicos": {
+            "current": 701
+          },
+          "posicion_media": {
+            "current": 6.4,
+            "invert": true
+          },
+          "formularios": {
+            "current": 4
+          },
+          "eventos": {
+            "current": 1412
+          },
+          "keywords_top10": {
+            "current": 62
+          }
         },
         "metrics": {
-          "impresiones_organicas": { "values": [131168,158317,134979,151232,137164,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "clics_organicos":       { "values": [701,789,773,962,958,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "posicion_media":        { "values": [6.4,5.9,5.4,6.0,8.56,null,null,null,null,null,null,null], "color": "#ffb84d", "invert": true },
-          "formularios":           { "values": [4,5,4,6,21,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "eventos":               { "values": [1412,1536,1485,1410,1469,null,null,null,null,null,null,null], "color": "#7a9cc8" },
-          "keywords_top10":        { "values": [62,71,84,111,111,null,null,null,null,null,null,null], "color": "#ece4d3" }
+          "impresiones_organicas": {
+            "values": [
+              131168,
+              158317,
+              134979,
+              151232,
+              137164,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "clics_organicos": {
+            "values": [
+              701,
+              789,
+              773,
+              962,
+              958,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "posicion_media": {
+            "values": [
+              6.4,
+              5.9,
+              5.4,
+              6,
+              8.56,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d",
+            "invert": true
+          },
+          "formularios": {
+            "values": [
+              4,
+              5,
+              4,
+              6,
+              21,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "eventos": {
+            "values": [
+              1412,
+              1536,
+              1485,
+              1410,
+              1469,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#7a9cc8"
+          },
+          "keywords_top10": {
+            "values": [
+              62,
+              71,
+              84,
+              111,
+              111,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          }
         }
       },
       "informe_ia": {
-        "linkedin": "Enero es el mes de arranque y los números lo reflejan. **1.036 seguidores**, impresiones en **1.669** y **20 reacciones**. Son los datos base desde los que mediremos el crecimiento del año, así que no hay mucho con qué comparar todavía, pero la comunidad existe y está activa. Los visitantes al perfil son 56, lo que indica que hay gente llegando y mirando, aunque todavía con poca frecuencia. Sin comentarios este mes, algo habitual cuando el perfil está arrancando y el contenido es mayoritariamente informativo. El reto de febrero es empezar a generar más conversación: una pregunta abierta o una opinión sobre el sector puede marcar la diferencia entre un perfil que informa y uno que engancha*",
-        "seo": "Enero deja una foto sólida como punto de partida. **131.168 impresiones orgánicas**, **701 clics** y una posición media de **6,4**, lo que significa que la web ya está en primera página para muchas búsquedas técnicas. **62 keywords en top 10** es una base muy respetable para un dominio B2B industrial. Los **4 formularios enviados** y **1.412 eventos de interacción** confirman que el tráfico no es solo de paso: hay gente que entra, navega y actúa. El trabajo de los meses anteriores está dando sus frutos. El objetivo para los próximos meses es seguir ampliando el número de keywords en top 10, especialmente en inglés y francés donde el volumen de búsquedas es mayor*",
-        "generado": "2026-06-03T00:00:00Z"
+        "linkedin": "",
+        "seo": "",
+        "generado": "2026-06-03"
       }
     },
     "Feb": {
       "label": "Feb 2026",
       "linkedin": {
         "goals": {
-          "seguidores":      { "current": 1049, "target": 2000 },
-          "impresiones":     { "current": 1109, "target": 2500 },
-          "visitantes":      { "current": 48,   "target": 100  },
-          "visualizaciones": { "current": 102,  "target": 100  },
-          "reacciones":      { "current": 35,   "target": 50   },
-          "comentarios":     { "current": 0,    "target": 10   }
+          "seguidores": {
+            "current": 1049,
+            "target": 2000
+          },
+          "impresiones": {
+            "current": 1109,
+            "target": 2500
+          },
+          "visitantes": {
+            "current": 48,
+            "target": 100
+          },
+          "visualizaciones": {
+            "current": 102,
+            "target": 100
+          },
+          "reacciones": {
+            "current": 35,
+            "target": 50
+          },
+          "comentarios": {
+            "current": 0,
+            "target": 10
+          }
         },
         "metrics": {
-          "seguidores":      { "values": [1036,1049,1061,1068,1095,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "impresiones":     { "values": [1669,1109,1444,3230,2944,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "visitantes":      { "values": [56,48,48,128,143,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "visualizaciones": { "values": [111,102,109,178,0,null,null,null,null,null,null,null], "color": "#ffb84d" },
-          "reacciones":      { "values": [20,35,26,61,101,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "comentarios":     { "values": [0,0,0,5,1,null,null,null,null,null,null,null], "color": "#b8b3aa" }
+          "seguidores": {
+            "values": [
+              1036,
+              1049,
+              1061,
+              1068,
+              1095,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "impresiones": {
+            "values": [
+              1669,
+              1109,
+              1444,
+              3230,
+              2944,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "visitantes": {
+            "values": [
+              56,
+              48,
+              48,
+              128,
+              143,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "visualizaciones": {
+            "values": [
+              111,
+              102,
+              109,
+              178,
+              0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d"
+          },
+          "reacciones": {
+            "values": [
+              20,
+              35,
+              26,
+              61,
+              101,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "comentarios": {
+            "values": [
+              0,
+              0,
+              0,
+              5,
+              1,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#b8b3aa"
+          }
         }
       },
       "seo": {
         "goals": {
-          "impresiones_organicas": { "current": 158317 },
-          "clics_organicos":       { "current": 789 },
-          "posicion_media":        { "current": 5.9, "invert": true },
-          "formularios":           { "current": 5 },
-          "eventos":               { "current": 1536 },
-          "keywords_top10":        { "current": 71 }
+          "impresiones_organicas": {
+            "current": 158317
+          },
+          "clics_organicos": {
+            "current": 789
+          },
+          "posicion_media": {
+            "current": 5.9,
+            "invert": true
+          },
+          "formularios": {
+            "current": 5
+          },
+          "eventos": {
+            "current": 1536
+          },
+          "keywords_top10": {
+            "current": 71
+          }
         },
         "metrics": {
-          "impresiones_organicas": { "values": [131168,158317,134979,151232,137164,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "clics_organicos":       { "values": [701,789,773,962,958,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "posicion_media":        { "values": [6.4,5.9,5.4,6.0,8.56,null,null,null,null,null,null,null], "color": "#ffb84d", "invert": true },
-          "formularios":           { "values": [4,5,4,6,21,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "eventos":               { "values": [1412,1536,1485,1410,1469,null,null,null,null,null,null,null], "color": "#7a9cc8" },
-          "keywords_top10":        { "values": [62,71,84,111,111,null,null,null,null,null,null,null], "color": "#ece4d3" }
+          "impresiones_organicas": {
+            "values": [
+              131168,
+              158317,
+              134979,
+              151232,
+              137164,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "clics_organicos": {
+            "values": [
+              701,
+              789,
+              773,
+              962,
+              958,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "posicion_media": {
+            "values": [
+              6.4,
+              5.9,
+              5.4,
+              6,
+              8.56,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d",
+            "invert": true
+          },
+          "formularios": {
+            "values": [
+              4,
+              5,
+              4,
+              6,
+              21,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "eventos": {
+            "values": [
+              1412,
+              1536,
+              1485,
+              1410,
+              1469,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#7a9cc8"
+          },
+          "keywords_top10": {
+            "values": [
+              62,
+              71,
+              84,
+              111,
+              111,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          }
         }
       },
       "informe_ia": {
-        "linkedin": "Febrero trae una buena noticia y una señal a vigilar. La buena: las **reacciones suben a 35**, casi el doble que en enero. Algo en el contenido de este mes conectó mejor con la audiencia, y eso es exactamente lo que buscamos. La señal a vigilar: las impresiones bajan a **1.109**, el punto más bajo del año. Esto puede indicar que publicamos en momentos de menor alcance o que el algoritmo de LinkedIn no distribuyó tanto el contenido. Los seguidores siguen creciendo a **1.049** de forma constante, lo cual es buena señal. Para marzo, la prioridad es mantener el nivel de engagement de febrero y recuperar las impresiones publicando en ventanas horarias de mayor actividad industrial*",
-        "seo": "El mejor mes del año en impresiones: **158.317**, un pico notable que confirma que el contenido técnico está ganando visibilidad en Google. Los clics suben a **789** y la posición media mejora a **5,9**, acercándose a los primeros resultados. Las keywords en top 10 crecen a **71** y los eventos de interacción llegan a **1.536**, el dato más alto del histórico hasta ahora. **5 formularios enviados** indica que el SEO está generando demanda real. El único matiz es que la relación entre impresiones y clics sigue siendo baja: con ese volumen hay margen para mejorar los títulos y descripciones de las páginas más vistas y convertir más visibilidad en tráfico*",
-        "generado": "2026-06-03T00:00:00Z"
+        "linkedin": "",
+        "seo": "",
+        "generado": "2026-06-03"
       }
     },
     "Mar": {
       "label": "Mar 2026",
       "linkedin": {
         "goals": {
-          "seguidores":      { "current": 1061, "target": 2000 },
-          "impresiones":     { "current": 1444, "target": 2500 },
-          "visitantes":      { "current": 48,   "target": 100  },
-          "visualizaciones": { "current": 109,  "target": 100  },
-          "reacciones":      { "current": 26,   "target": 50   },
-          "comentarios":     { "current": 0,    "target": 10   }
+          "seguidores": {
+            "current": 1061,
+            "target": 2000
+          },
+          "impresiones": {
+            "current": 1444,
+            "target": 2500
+          },
+          "visitantes": {
+            "current": 48,
+            "target": 100
+          },
+          "visualizaciones": {
+            "current": 109,
+            "target": 100
+          },
+          "reacciones": {
+            "current": 26,
+            "target": 50
+          },
+          "comentarios": {
+            "current": 0,
+            "target": 10
+          }
         },
         "metrics": {
-          "seguidores":      { "values": [1036,1049,1061,1068,1095,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "impresiones":     { "values": [1669,1109,1444,3230,2944,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "visitantes":      { "values": [56,48,48,128,143,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "visualizaciones": { "values": [111,102,109,178,0,null,null,null,null,null,null,null], "color": "#ffb84d" },
-          "reacciones":      { "values": [20,35,26,61,101,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "comentarios":     { "values": [0,0,0,5,1,null,null,null,null,null,null,null], "color": "#b8b3aa" }
+          "seguidores": {
+            "values": [
+              1036,
+              1049,
+              1061,
+              1068,
+              1095,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "impresiones": {
+            "values": [
+              1669,
+              1109,
+              1444,
+              3230,
+              2944,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "visitantes": {
+            "values": [
+              56,
+              48,
+              48,
+              128,
+              143,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "visualizaciones": {
+            "values": [
+              111,
+              102,
+              109,
+              178,
+              0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d"
+          },
+          "reacciones": {
+            "values": [
+              20,
+              35,
+              26,
+              61,
+              101,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "comentarios": {
+            "values": [
+              0,
+              0,
+              0,
+              5,
+              1,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#b8b3aa"
+          }
         }
       },
       "seo": {
         "goals": {
-          "impresiones_organicas": { "current": 134979 },
-          "clics_organicos":       { "current": 773 },
-          "posicion_media":        { "current": 5.4, "invert": true },
-          "formularios":           { "current": 4 },
-          "eventos":               { "current": 1485 },
-          "keywords_top10":        { "current": 84 }
+          "impresiones_organicas": {
+            "current": 134979
+          },
+          "clics_organicos": {
+            "current": 773
+          },
+          "posicion_media": {
+            "current": 5.4,
+            "invert": true
+          },
+          "formularios": {
+            "current": 4
+          },
+          "eventos": {
+            "current": 1485
+          },
+          "keywords_top10": {
+            "current": 84
+          }
         },
         "metrics": {
-          "impresiones_organicas": { "values": [131168,158317,134979,151232,137164,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "clics_organicos":       { "values": [701,789,773,962,958,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "posicion_media":        { "values": [6.4,5.9,5.4,6.0,8.56,null,null,null,null,null,null,null], "color": "#ffb84d", "invert": true },
-          "formularios":           { "values": [4,5,4,6,21,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "eventos":               { "values": [1412,1536,1485,1410,1469,null,null,null,null,null,null,null], "color": "#7a9cc8" },
-          "keywords_top10":        { "values": [62,71,84,111,111,null,null,null,null,null,null,null], "color": "#ece4d3" }
+          "impresiones_organicas": {
+            "values": [
+              131168,
+              158317,
+              134979,
+              151232,
+              137164,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "clics_organicos": {
+            "values": [
+              701,
+              789,
+              773,
+              962,
+              958,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "posicion_media": {
+            "values": [
+              6.4,
+              5.9,
+              5.4,
+              6,
+              8.56,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d",
+            "invert": true
+          },
+          "formularios": {
+            "values": [
+              4,
+              5,
+              4,
+              6,
+              21,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "eventos": {
+            "values": [
+              1412,
+              1536,
+              1485,
+              1410,
+              1469,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#7a9cc8"
+          },
+          "keywords_top10": {
+            "values": [
+              62,
+              71,
+              84,
+              111,
+              111,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          }
         }
       },
       "informe_ia": {
-        "linkedin": "Marzo es un mes estable pero que pide más. Los seguidores alcanzan **1.061**, el crecimiento es constante aunque moderado. Las impresiones se recuperan a **1.444** respecto al bajón de febrero y las visualizaciones de vídeo se mantienen en **109**. El problema está en las reacciones: bajan a **26** desde las 35 de febrero. Cuando el contenido es más técnico y menos conversacional, la gente lo lee pero no interactúa. Cero comentarios de nuevo. Abril tiene que ser el mes de romper esa dinámica: al menos una pieza que invite a opinar o que cuente algo de Welysis desde dentro, no solo desde el producto*",
-        "seo": "Tercer mes consecutivo mejorando posición media: llega a **5,4**, el mejor dato del año hasta ahora. Las keywords en top 10 saltan a **84**, un crecimiento de 13 respecto a febrero que indica que el trabajo de contenidos está posicionando nuevas páginas. Los clics bajan ligeramente a **773** y las impresiones a **134.979**, pero son variaciones normales dentro de un canal que sigue creciendo. Los **4 formularios enviados** mantienen el ritmo. El SEO está en una fase de consolidación muy sana: más keywords, mejor posición, tráfico cualificado. El siguiente paso es empujar las páginas en posición 11-20 a primera página*",
-        "generado": "2026-06-03T00:00:00Z"
+        "linkedin": "",
+        "seo": "",
+        "generado": "2026-06-03"
       }
     },
     "Abr": {
       "label": "Abr 2026",
       "linkedin": {
         "goals": {
-          "seguidores":      { "current": 1068, "target": 2000 },
-          "impresiones":     { "current": 3230, "target": 2500 },
-          "visitantes":      { "current": 128,  "target": 100  },
-          "visualizaciones": { "current": 178,  "target": 100  },
-          "reacciones":      { "current": 61,   "target": 50   },
-          "comentarios":     { "current": 5,    "target": 10   }
+          "seguidores": {
+            "current": 1068,
+            "target": 2000
+          },
+          "impresiones": {
+            "current": 3230,
+            "target": 2500
+          },
+          "visitantes": {
+            "current": 128,
+            "target": 100
+          },
+          "visualizaciones": {
+            "current": 178,
+            "target": 100
+          },
+          "reacciones": {
+            "current": 61,
+            "target": 50
+          },
+          "comentarios": {
+            "current": 5,
+            "target": 10
+          }
         },
         "metrics": {
-          "seguidores":      { "values": [1036,1049,1061,1068,1095,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "impresiones":     { "values": [1669,1109,1444,3230,2944,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "visitantes":      { "values": [56,48,48,128,143,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "visualizaciones": { "values": [111,102,109,178,0,null,null,null,null,null,null,null], "color": "#ffb84d" },
-          "reacciones":      { "values": [20,35,26,61,101,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "comentarios":     { "values": [0,0,0,5,1,null,null,null,null,null,null,null], "color": "#b8b3aa" }
+          "seguidores": {
+            "values": [
+              1036,
+              1049,
+              1061,
+              1068,
+              1095,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "impresiones": {
+            "values": [
+              1669,
+              1109,
+              1444,
+              3230,
+              2944,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "visitantes": {
+            "values": [
+              56,
+              48,
+              48,
+              128,
+              143,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "visualizaciones": {
+            "values": [
+              111,
+              102,
+              109,
+              178,
+              0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d"
+          },
+          "reacciones": {
+            "values": [
+              20,
+              35,
+              26,
+              61,
+              101,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "comentarios": {
+            "values": [
+              0,
+              0,
+              0,
+              5,
+              1,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#b8b3aa"
+          }
         }
       },
       "seo": {
         "goals": {
-          "impresiones_organicas": { "current": 151232 },
-          "clics_organicos":       { "current": 962 },
-          "posicion_media":        { "current": 6.0, "invert": true },
-          "formularios":           { "current": 6 },
-          "eventos":               { "current": 1410 },
-          "keywords_top10":        { "current": 111 }
+          "impresiones_organicas": {
+            "current": 151232
+          },
+          "clics_organicos": {
+            "current": 962
+          },
+          "posicion_media": {
+            "current": 6,
+            "invert": true
+          },
+          "formularios": {
+            "current": 6
+          },
+          "eventos": {
+            "current": 1410
+          },
+          "keywords_top10": {
+            "current": 111
+          }
         },
         "metrics": {
-          "impresiones_organicas": { "values": [131168,158317,134979,151232,137164,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "clics_organicos":       { "values": [701,789,773,962,958,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "posicion_media":        { "values": [6.4,5.9,5.4,6.0,8.56,null,null,null,null,null,null,null], "color": "#ffb84d", "invert": true },
-          "formularios":           { "values": [4,5,4,6,21,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "eventos":               { "values": [1412,1536,1485,1410,1469,null,null,null,null,null,null,null], "color": "#7a9cc8" },
-          "keywords_top10":        { "values": [62,71,84,111,111,null,null,null,null,null,null,null], "color": "#ece4d3" }
+          "impresiones_organicas": {
+            "values": [
+              131168,
+              158317,
+              134979,
+              151232,
+              137164,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "clics_organicos": {
+            "values": [
+              701,
+              789,
+              773,
+              962,
+              958,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "posicion_media": {
+            "values": [
+              6.4,
+              5.9,
+              5.4,
+              6,
+              8.56,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d",
+            "invert": true
+          },
+          "formularios": {
+            "values": [
+              4,
+              5,
+              4,
+              6,
+              21,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "eventos": {
+            "values": [
+              1412,
+              1536,
+              1485,
+              1410,
+              1469,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#7a9cc8"
+          },
+          "keywords_top10": {
+            "values": [
+              62,
+              71,
+              84,
+              111,
+              111,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          }
         }
       },
       "informe_ia": {
-        "linkedin": "Abril es el mejor mes del año y no es casualidad. **3.230 impresiones**, **61 reacciones**, **5 comentarios**, **128 visitantes** al perfil y **178 visualizaciones de vídeo**. Todos los indicadores apuntan en verde. Algo en la estrategia de contenido de abril funcionó especialmente bien, probablemente la combinación de piezas más visuales y contenido con mayor componente humano o de evento. Las reacciones a 61 casi triplican la media de los meses anteriores. El reto de mayo es no perder ese nivel de engagement: identificar qué posts específicos generaron más interacción y replicar esa fórmula*",
-        "seo": "Abril bate el récord de clics: **962 orgánicos**, el mejor dato del año. Las impresiones en **151.232** están en línea con los mejores meses y las keywords en top 10 alcanzan **111**, casi el doble que en enero. Es un salto muy significativo que confirma que la estrategia de contenidos en tres idiomas está funcionando. Los **6 formularios enviados** son también el mejor dato del año. La posición media sube ligeramente a **6,0** respecto al mínimo de marzo, algo normal cuando se posicionan nuevas páginas que entran con posiciones intermedias. Abril cierra el Q1 con todos los indicadores en máximos y una base muy sólida para el Q2*",
-        "generado": "2026-06-03T00:00:00Z"
+        "linkedin": "",
+        "seo": "",
+        "generado": "2026-06-03"
       }
     },
     "May": {
       "label": "May 2026",
       "linkedin": {
         "goals": {
-          "seguidores":      { "current": 1095, "target": 2000 },
-          "impresiones":     { "current": 2944, "target": 2500 },
-          "visitantes":      { "current": 143,  "target": 100  },
-          "visualizaciones": { "current": 0,    "target": 100  },
-          "reacciones":      { "current": 101,  "target": 50   },
-          "comentarios":     { "current": 1,    "target": 10   }
+          "seguidores": {
+            "current": 1095,
+            "target": 2000
+          },
+          "impresiones": {
+            "current": 2944,
+            "target": 2500
+          },
+          "visitantes": {
+            "current": 143,
+            "target": 100
+          },
+          "visualizaciones": {
+            "current": 0,
+            "target": 100
+          },
+          "reacciones": {
+            "current": 101,
+            "target": 50
+          },
+          "comentarios": {
+            "current": 1,
+            "target": 10
+          }
         },
         "metrics": {
-          "seguidores":      { "values": [1036,1049,1061,1068,1095,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "impresiones":     { "values": [1669,1109,1444,3230,2944,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "visitantes":      { "values": [56,48,48,128,143,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "visualizaciones": { "values": [111,102,109,178,0,null,null,null,null,null,null,null], "color": "#ffb84d" },
-          "reacciones":      { "values": [20,35,26,61,101,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "comentarios":     { "values": [0,0,0,5,1,null,null,null,null,null,null,null], "color": "#b8b3aa" }
+          "seguidores": {
+            "values": [
+              1036,
+              1049,
+              1061,
+              1068,
+              1095,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "impresiones": {
+            "values": [
+              1669,
+              1109,
+              1444,
+              3230,
+              2944,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "visitantes": {
+            "values": [
+              56,
+              48,
+              48,
+              128,
+              143,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "visualizaciones": {
+            "values": [
+              111,
+              102,
+              109,
+              178,
+              0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d"
+          },
+          "reacciones": {
+            "values": [
+              20,
+              35,
+              26,
+              61,
+              101,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "comentarios": {
+            "values": [
+              0,
+              0,
+              0,
+              5,
+              1,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#b8b3aa"
+          }
         }
       },
       "seo": {
         "goals": {
-          "impresiones_organicas": { "current": 137164 },
-          "clics_organicos":       { "current": 958 },
-          "posicion_media":        { "current": 8.56, "invert": true },
-          "formularios":           { "current": 21 },
-          "eventos":               { "current": 1469 },
-          "keywords_top10":        { "current": 111 }
+          "impresiones_organicas": {
+            "current": 137164
+          },
+          "clics_organicos": {
+            "current": 958
+          },
+          "posicion_media": {
+            "current": 8.56,
+            "invert": true
+          },
+          "formularios": {
+            "current": 21
+          },
+          "eventos": {
+            "current": 1469
+          },
+          "keywords_top10": {
+            "current": 111
+          }
         },
         "metrics": {
-          "impresiones_organicas": { "values": [131168,158317,134979,151232,137164,null,null,null,null,null,null,null], "color": "#c8e87a" },
-          "clics_organicos":       { "values": [701,789,773,962,958,null,null,null,null,null,null,null], "color": "#f24b3b" },
-          "posicion_media":        { "values": [6.4,5.9,5.4,6.0,8.56,null,null,null,null,null,null,null], "color": "#ffb84d", "invert": true },
-          "formularios":           { "values": [4,5,4,6,21,null,null,null,null,null,null,null], "color": "#ece4d3" },
-          "eventos":               { "values": [1412,1536,1485,1410,1469,null,null,null,null,null,null,null], "color": "#7a9cc8" },
-          "keywords_top10":        { "values": [62,71,84,111,111,null,null,null,null,null,null,null], "color": "#ece4d3" }
+          "impresiones_organicas": {
+            "values": [
+              131168,
+              158317,
+              134979,
+              151232,
+              137164,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#c8e87a"
+          },
+          "clics_organicos": {
+            "values": [
+              701,
+              789,
+              773,
+              962,
+              958,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#f24b3b"
+          },
+          "posicion_media": {
+            "values": [
+              6.4,
+              5.9,
+              5.4,
+              6,
+              8.56,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ffb84d",
+            "invert": true
+          },
+          "formularios": {
+            "values": [
+              4,
+              5,
+              4,
+              6,
+              21,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          },
+          "eventos": {
+            "values": [
+              1412,
+              1536,
+              1485,
+              1410,
+              1469,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#7a9cc8"
+          },
+          "keywords_top10": {
+            "values": [
+              62,
+              71,
+              84,
+              111,
+              111,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "color": "#ece4d3"
+          }
         }
       },
       "informe_ia": {
-        "linkedin": "Mayo ha sido un mes con datos para analizar con calma. Los seguidores siguen creciendo, ya vamos por **1.095**, y los visitantes al perfil han subido a **143**, el mejor dato desde que empezamos. Pero hay una métrica que llama la atención: las impresiones de contenido bajan a 1.753 en posts propios, aunque el engagement se ha disparado a **+314%**. Eso significa una cosa muy concreta: publicamos menos veces (5 posts), pero lo que publicamos ha conectado mucho mejor. El post del evento en África llegó a **614 impresiones y 34 reacciones**, que para el volumen de seguidores que tenemos es un resultado muy sólido.\n\nLa parte que hay que trabajar es la constancia. 5 posts en un mes es poco para un perfil que todavía está construyendo masa crítica. Las reacciones están en **101**, casi en el objetivo anual de 120 y solo en mayo, lo que confirma que cuando el contenido es bueno la audiencia responde. El problema no es la calidad, es el volumen. Necesitamos mantener ese nivel de contenido pero publicando más.\n\nPara junio la prioridad es clara: mantener el estilo de los posts que mejor han funcionado y aumentar la cadencia a al menos 8-10 publicaciones. El objetivo de **2.500 seguidores** está al 44% del año, hay que acelerar*",
-        "seo": "Los números de mayo hablan claro: **958 clics orgánicos** y **137.164 impresiones**. El SEO es el principal motor de Welysis en digital, con el **76% del tráfico total** viniendo de búsqueda orgánica. Hay **111 keywords en top 10**, el mejor dato del año, y la web ya aparece en respuestas de ChatGPT, Claude, Perplexity y Gemini.\n\nEl punto que necesita atención es la posición media: **8,56**. Ha empeorado respecto a los meses anteriores. El CTR está en **0,70%**, que con ese volumen de impresiones tiene mucho margen de mejora.\n\nLa prioridad para junio es una: mejorar los títulos y descripciones de las páginas con muchas impresiones pero poco CTR, especialmente en francés e inglés. Con ese cambio, el tráfico puede crecer sin publicar una sola línea nueva de contenido*",
-        "generado": "2026-06-03T00:00:00Z"
+        "linkedin": "",
+        "seo": "",
+        "generado": "2026-06-03"
       }
     }
   },
