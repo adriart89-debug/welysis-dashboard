@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * hanson* · actualizador mensual Welysis Dashboard v5
+ * hanson* · actualizador mensual Welysis Dashboard v6
  */
 'use strict';
 
@@ -20,13 +20,13 @@ const MONTHS     = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct',
 const MONTH_FULL = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                     'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-// Fila exacta de cada mes en INFORMES (verificado manualmente)
-const INFORMES_FILAS = [6,7,8,9,10,11,12,13,14,15,16,17];
-
 const log = msg => console.log('[' + new Date().toISOString() + '] ' + msg);
 function now()             { return new Date().toISOString().slice(0,10); }
 function monthLabel()      { const d = new Date(); return MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
 function currentMonthIdx() { return new Date().getMonth(); }
+// Mostrar el mes anterior (el informe se envía un mes después)
+function reportMonthIdx()  { const i = currentMonthIdx(); return i === 0 ? 11 : i - 1; }
+function reportMonthLabel(){ return MONTHS[reportMonthIdx()] + ' ' + CFG.period; }
 
 function loadExisting() {
   try   { return JSON.parse(fs.readFileSync(CFG.outputJson, 'utf8')); }
@@ -110,39 +110,36 @@ async function readSeo(sheets) {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   INFORMES — lee cada fila individualmente por número de fila
-   Esto evita cualquier problema con texto largo, encoding o formato
+   INFORMES — nueva estructura:
+   Fila 1: cabecera (MES | INFORME_LINKEDIN | INFORME_SEO)
+   Filas 2-13: Enero 2026 ... Diciembre 2026 (una por fila, sin combinar)
    ══════════════════════════════════════════════════════════════════════════════ */
 async function readInformes(sheets, existing) {
-  log('Leyendo INFORMES fila a fila...');
+  log('Leyendo INFORMES...');
+
+  // Leer filas 2-13 (los 12 meses)
+  const rows = await readRange(sheets, 'INFORMES!A2:C13');
+
+  log('  -> Filas recibidas: ' + rows.length);
 
   const todos = {};
-
-  for (let i = 0; i < 12; i++) {
-    const fila    = INFORMES_FILAS[i];
-    const mesKey  = MONTH_FULL[i] + ' ' + CFG.period;
+  rows.forEach((row, i) => {
     const mesCorto = MONTHS[i];
-
-    // Leer las tres celdas de esta fila
-    const rows = await readRange(sheets, 'INFORMES!A' + fila + ':C' + fila);
-    const row  = rows[0] || [];
-
-    const mesCell = (row[0] || '').trim();
-    const liText  = (row[1] || '').trim();
-    const seoText = (row[2] || '').trim();
-
-    log('  Fila ' + fila + ' (' + mesKey + '): A="' + mesCell.slice(0,20) + '" B=' + liText.length + ' chars, C=' + seoText.length + ' chars');
-
+    const liText   = (row[1] || '').trim();
+    const seoText  = (row[2] || '').trim();
+    const mesCell  = (row[0] || '').trim();
+    log('  Mes ' + mesCorto + ' (' + mesCell + '): LinkedIn=' + liText.length + ' chars, SEO=' + seoText.length + ' chars');
     todos[mesCorto] = { linkedin: liText, seo: seoText };
-  }
+  });
 
-  // Informe del mes actual
-  const mesActualCorto = MONTHS[currentMonthIdx()];
-  let actual = todos[mesActualCorto] || { linkedin: '', seo: '' };
+  // Usar el mes anterior como mes de reporte
+  const reportIdx   = reportMonthIdx();
+  const reportMonth = MONTHS[reportIdx];
+  let actual = todos[reportMonth] || { linkedin: '', seo: '' };
 
   // Fallback: último mes con texto
   if (!actual.linkedin && !actual.seo) {
-    for (let i = currentMonthIdx(); i >= 0; i--) {
+    for (let i = reportIdx; i >= 0; i--) {
       const m = todos[MONTHS[i]];
       if (m && (m.linkedin || m.seo)) {
         actual = m;
@@ -156,7 +153,7 @@ async function readInformes(sheets, existing) {
   if (!actual.linkedin) actual.linkedin = existing?.informe_ia?.linkedin || '';
   if (!actual.seo)      actual.seo      = existing?.informe_ia?.seo      || '';
 
-  log('  -> Informe actual (' + mesActualCorto + '): LinkedIn ' + actual.linkedin.length + ' chars, SEO ' + actual.seo.length + ' chars');
+  log('  -> Informe de reporte (' + reportMonth + '): LinkedIn ' + actual.linkedin.length + ' chars, SEO ' + actual.seo.length + ' chars');
   return { actual, todos };
 }
 
@@ -205,7 +202,7 @@ function buildHistorico(linkedin, seo, informes) {
    ══════════════════════════════════════════════════════════════════════════════ */
 async function main() {
   log('===========================================');
-  log('hanson* · Actualizador Dashboard Welysis v5');
+  log('hanson* · Actualizador Dashboard Welysis v6');
   log('===========================================');
 
   if (!CFG.spreadsheetId) { log('ERROR: falta SPREADSHEET_ID'); process.exit(1); }
@@ -215,24 +212,23 @@ async function main() {
 
   const sheets = await getSheets();
 
-  // Leer secuencialmente para evitar rate limits
   const linkedin = await readLinkedin(sheets);
   const seo      = await readSeo(sheets);
   const informes = await readInformes(sheets, existing);
 
-  const historico = buildHistorico(linkedin, seo, informes);
-  const mesActual = MONTHS[currentMonthIdx()];
+  const historico  = buildHistorico(linkedin, seo, informes);
+  const reportMes  = MONTHS[reportMonthIdx()];
 
   const data = {
     meta: {
       client:           CFG.clientName,
       period:           CFG.period,
       updated:          now(),
-      month_label:      monthLabel(),
-      month_current:    mesActual,
+      month_label:      reportMonthLabel(),
+      month_current:    reportMes,
       tagline_linkedin: existing?.meta?.tagline_linkedin || 'los numeros no mienten, pero si se maquillan*',
       tagline_seo:      existing?.meta?.tagline_seo      || 'google nos quiere, pero hay que currarselo*',
-      generated_by:     'hanson-updater v5',
+      generated_by:     'hanson-updater v6',
     },
     linkedin: {
       goals:     linkedin.goals,
@@ -257,6 +253,7 @@ async function main() {
   fs.writeFileSync(CFG.outputJson, output, 'utf8');
   log('OK: ' + CFG.outputJson + ' (' + (output.length/1024).toFixed(1) + ' KB)');
   log('Meses en historico: ' + Object.keys(historico).join(', '));
+  log('Mes de reporte: ' + reportMes);
   log('Completado.');
 }
 
