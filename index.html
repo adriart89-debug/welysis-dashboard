@@ -679,11 +679,12 @@ function marqueeContent(metrics) {
    RESOLVER DATOS DEL MES ACTIVO
    ══════════════════════════════════════════════ */
 function getActiveMonthData() {
-  // Si hay mes seleccionado y existe en el histórico, usarlo siempre
   const mes = activeMonth || DATA.meta.month_current;
-  
+  console.log('[debug] mes activo:', mes, '| activeMonth:', activeMonth, '| month_current:', DATA.meta.month_current);
+
   if (mes && DATA.historico?.[mes]) {
     const h = DATA.historico[mes];
+    console.log('[debug] historico encontrado para', mes, '| informe_li:', (h.informe_ia?.linkedin||'').length, 'chars | informe_seo:', (h.informe_ia?.seo||'').length, 'chars');
     return {
       linkedin:   h.linkedin   || DATA.linkedin,
       seo:        h.seo        || DATA.seo,
@@ -692,7 +693,7 @@ function getActiveMonthData() {
     };
   }
 
-  // Fallback: datos globales
+  console.log('[debug] sin historico para', mes, '| usando datos globales | informe_li:', (DATA.informe_ia?.linkedin||'').length, 'chars');
   return {
     linkedin:   DATA.linkedin,
     seo:        DATA.seo,
