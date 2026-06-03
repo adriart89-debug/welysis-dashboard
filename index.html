@@ -297,13 +297,12 @@
   /* ─── MARQUEE ─── */
   .marquee {
     overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    background: var(--cream); color: #141414;
-    padding: 14px 0; font-size: 28px; font-weight: 800;
-    letter-spacing: -0.02em; white-space: nowrap;
+    background: var(--bg-2); color: var(--accent);
+    padding: 16px 0; white-space: nowrap;
   }
-  .marquee-track { display: inline-flex; gap: 48px; animation: scroll 36s linear infinite; padding-left: 48px; }
-  .marquee .ast { color: var(--accent); }
-  .marquee .sep { color: #999; }
+  .marquee-track { display: inline-flex; align-items: center; gap: 32px; animation: scroll 24s linear infinite; padding-left: 32px; }
+  .marquee .ast { color: var(--accent); font-size: 52px; font-weight: 900; line-height: 1; display: inline-block; transform: translateY(2px); }
+  .marquee .hs { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); font-family: 'JetBrains Mono', monospace; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* ─── FOOTER ─── */
@@ -663,12 +662,9 @@ function projectRow(p) {
     </tr>`;
 }
 
-function marqueeContent(metrics) {
-  const totals = Object.entries(metrics).map(([k,m]) => {
-    const sum = m.values.reduce((a,b) => a+(b||0), 0);
-    return `${PRETTY[k]||k} ${fmt(sum)}`;
-  }).join(' <span class="sep">/</span> ');
-  return `<span>${totals} <span class="ast">*</span> ${DATA.meta.month_label} <span class="sep">/</span> </span>`;
+function marqueeContent() {
+  const unit = `<span class="ast">*</span><span class="hs">hanson style</span><span class="ast">*</span><span class="hs">hanson style</span>`;
+  return unit + unit + unit;
 }
 
 /* ══════════════════════════════════════════════
@@ -854,7 +850,7 @@ function render() {
     <!-- MARQUEE -->
     <div class="marquee">
       <div class="marquee-track">
-        ${marqueeContent(metrics)}${marqueeContent(metrics)}
+        ${marqueeContent()}
       </div>
     </div>
 
