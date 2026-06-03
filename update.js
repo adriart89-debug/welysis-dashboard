@@ -123,17 +123,18 @@ async function readSeo(sheets) {
    ══════════════════════════════════════════════════════════════════════════════ */
 async function readInformes(sheets, existing) {
   log('Leyendo INFORMES...');
-  const rows = await readRange(sheets, 'INFORMES!A6:C17');
+  // Leer rango amplio: hasta fila 50 para cubrir filas con altura grande
+  const rows = await readRange(sheets, 'INFORMES!A1:C50');
 
-  // Construir objeto con todos los meses: { "Enero 2026": { linkedin, seo }, ... }
+  // Construir objeto buscando cualquier celda de col A que contenga "2026"
   const todos = {};
   rows.forEach(row => {
     const mes = (row[0] || '').trim();
-    if (!mes) return;
-    todos[mes] = {
-      linkedin: (row[1] || '').trim(),
-      seo:      (row[2] || '').trim(),
-    };
+    if (!mes || !mes.includes('2026')) return; // solo filas con año
+    const linkedin = (row[1] || '').trim();
+    const seo      = (row[2] || '').trim();
+    // Guardar aunque estén vacíos, para saber que el mes existe
+    todos[mes] = { linkedin, seo };
   });
 
   // Informe del mes actual
