@@ -160,7 +160,7 @@ async function readInformes(sheets, existing) {
 /* ══════════════════════════════════════════════════════════════════════════════
    HISTÓRICO MENSUAL
    ══════════════════════════════════════════════════════════════════════════════ */
-function buildHistorico(linkedin, seo, informes) {
+function buildHistorico(linkedin, seo, informes, existing) {
   const historico = {};
 
   MONTHS.forEach((mes, idx) => {
@@ -220,7 +220,7 @@ async function main() {
   const seo      = await readSeo(sheets);
   const informes = await readInformes(sheets, existing);
 
-  const historico  = buildHistorico(linkedin, seo, informes);
+  const historico  = buildHistorico(linkedin, seo, informes, existing);
   const reportMes  = MONTHS[reportMonthIdx()];
 
   const data = {
