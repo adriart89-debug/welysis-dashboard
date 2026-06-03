@@ -365,8 +365,10 @@ const MONTHS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov
 const PRETTY = {
   seguidores:'seguidores', impresiones:'impresiones', visitantes:'visitantes',
   visualizaciones:'visualizaciones', reacciones:'reacciones', comentarios:'comentarios',
-  sesiones:'sesiones orgánicas', posicion_media:'posición media',
-  backlinks:'backlinks', keywords_top10:'keywords top 10'
+  impresiones_organicas:'impresiones orgánicas', clics_organicos:'clics orgánicos',
+  posicion_media:'posición media', formularios:'formularios enviados',
+  eventos:'eventos interacción', keywords_top10:'keywords top 10',
+  sesiones:'sesiones orgánicas', backlinks:'backlinks'
 };
 const ICONS = {
   seguidores:'◐', impresiones:'◑', visitantes:'◉', visualizaciones:'▣',
@@ -534,6 +536,25 @@ function bigChart(key, metric, area) {
    COMPONENT BUILDERS
    ══════════════════════════════════════════════ */
 function goalCard(key, g) {
+  // Si no tiene target, mostrar solo el número (SEO)
+  if (!g.target) {
+    const inv = g.invert;
+    return `
+    <div class="goal">
+      <div class="goal-head">
+        <div class="goal-name">${PRETTY[key]||key}</div>
+        <div class="goal-pct" style="color:var(--ink-mute);font-size:10px">${inv?'↓ mejor':'↑ mejor'}</div>
+      </div>
+      <div class="goal-numbers">
+        <span class="goal-current">${fmt(g.current)}</span>
+      </div>
+      <div class="goal-foot" style="margin-top:8px">
+        <span>seguimiento mensual</span>
+        <span style="color:var(--ink-mute)">sin objetivo fijo</span>
+      </div>
+    </div>`;
+  }
+
   const inv = g.invert;
   let pct;
   if (inv) {
