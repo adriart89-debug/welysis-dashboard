@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * hanson* · actualizador mensual Welysis Dashboard v4
+ * hanson* · actualizador mensual Welysis Dashboard v5
  */
 'use strict';
 
@@ -20,12 +20,8 @@ const MONTHS     = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct',
 const MONTH_FULL = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                     'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-// Fila exacta de cada mes en la hoja INFORMES del Sheets
-const INFORMES_ROWS = {
-  'Enero 2026':6,'Febrero 2026':7,'Marzo 2026':8,'Abril 2026':9,
-  'Mayo 2026':10,'Junio 2026':11,'Julio 2026':12,'Agosto 2026':13,
-  'Septiembre 2026':14,'Octubre 2026':15,'Noviembre 2026':16,'Diciembre 2026':17,
-};
+// Fila exacta de cada mes en INFORMES (verificado manualmente)
+const INFORMES_FILAS = [6,7,8,9,10,11,12,13,14,15,16,17];
 
 const log = msg => console.log('[' + new Date().toISOString() + '] ' + msg);
 function now()             { return new Date().toISOString().slice(0,10); }
@@ -43,16 +39,17 @@ function parseNum(val) {
   return isNaN(n) ? null : n;
 }
 
-async function getAuth() {
+async function getSheets() {
   const credentials = JSON.parse(fs.readFileSync(CFG.serviceAccount, 'utf8'));
-  return new google.auth.GoogleAuth({
+  const auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
   });
+  return google.sheets({ version: 'v4', auth });
 }
 
-async function readRange(sheetsApi, range) {
-  const res = await sheetsApi.spreadsheets.values.get({
+async function readRange(sheets, range) {
+  const res = await sheets.spreadsheets.values.get({
     spreadsheetId: CFG.spreadsheetId,
     range,
     valueRenderOption: 'FORMATTED_VALUE',
@@ -64,9 +61,9 @@ async function readRange(sheetsApi, range) {
 /* ══════════════════════════════════════════════════════════════════════════════
    LINKEDIN — filas 4-9, col A=KPI, B=Objetivo, C..N=Ene..Dic
    ══════════════════════════════════════════════════════════════════════════════ */
-async function readLinkedin(sheetsApi) {
+async function readLinkedin(sheets) {
   log('Leyendo LINKEDIN...');
-  const rows = await readRange(sheetsApi, 'LINKEDIN!A4:N9');
+  const rows = await readRange(sheets, 'LINKEDIN!A4:N9');
 
   const keys    = ['seguidores','impresiones','visitantes','visualizaciones','reacciones','comentarios'];
   const colors  = ['#f24b3b','#ece4d3','#c8e87a','#ffb84d','#f24b3b','#b8b3aa'];
@@ -89,9 +86,9 @@ async function readLinkedin(sheetsApi) {
 /* ══════════════════════════════════════════════════════════════════════════════
    SEO — filas 4-9, col A=KPI, B..M=Ene..Dic
    ══════════════════════════════════════════════════════════════════════════════ */
-async function readSeo(sheetsApi) {
+async function readSeo(sheets) {
   log('Leyendo SEO...');
-  const rows = await readRange(sheetsApi, 'SEO!A4:M9');
+  const rows = await readRange(sheets, 'SEO!A4:M9');
 
   const keys   = ['impresiones_organicas','clics_organicos','posicion_media','formularios','eventos','keywords_top10'];
   const colors = ['#c8e87a','#f24b3b','#ffb84d','#ece4d3','#7a9cc8','#ece4d3'];
@@ -113,46 +110,45 @@ async function readSeo(sheetsApi) {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   INFORMES — batchGet celda a celda para evitar problemas con celdas combinadas
+   INFORMES — lee cada fila individualmente por número de fila
+   Esto evita cualquier problema con texto largo, encoding o formato
    ══════════════════════════════════════════════════════════════════════════════ */
-async function readInformes(sheetsApi, existing) {
-  log('Leyendo INFORMES con batchGet...');
+async function readInformes(sheets, existing) {
+  log('Leyendo INFORMES fila a fila...');
 
-  const ranges = [];
-  const mesKeys = Object.keys(INFORMES_ROWS);
-
-  mesKeys.forEach(mes => {
-    const row = INFORMES_ROWS[mes];
-    ranges.push('INFORMES!B' + row);
-    ranges.push('INFORMES!C' + row);
-  });
-
-  const res = await sheetsApi.spreadsheets.values.batchGet({
-    spreadsheetId: CFG.spreadsheetId,
-    ranges,
-    valueRenderOption: 'FORMATTED_VALUE',
-  });
-
-  const vals = res.data.valueRanges || [];
   const todos = {};
 
-  mesKeys.forEach((mes, i) => {
-    const liVal  = (vals[i * 2]?.values?.[0]?.[0]   || '').trim();
-    const seoVal = (vals[i * 2 + 1]?.values?.[0]?.[0] || '').trim();
-    todos[mes] = { linkedin: liVal, seo: seoVal };
-    if (liVal || seoVal) log('  -> ' + mes + ': LinkedIn ' + liVal.length + ' chars, SEO ' + seoVal.length + ' chars');
-  });
+  for (let i = 0; i < 12; i++) {
+    const fila    = INFORMES_FILAS[i];
+    const mesKey  = MONTH_FULL[i] + ' ' + CFG.period;
+    const mesCorto = MONTHS[i];
 
-  // Mes actual
-  const mesActual = MONTH_FULL[currentMonthIdx()] + ' ' + CFG.period;
-  let actual = todos[mesActual] || { linkedin: '', seo: '' };
+    // Leer las tres celdas de esta fila
+    const rows = await readRange(sheets, 'INFORMES!A' + fila + ':C' + fila);
+    const row  = rows[0] || [];
+
+    const mesCell = (row[0] || '').trim();
+    const liText  = (row[1] || '').trim();
+    const seoText = (row[2] || '').trim();
+
+    log('  Fila ' + fila + ' (' + mesKey + '): A="' + mesCell.slice(0,20) + '" B=' + liText.length + ' chars, C=' + seoText.length + ' chars');
+
+    todos[mesCorto] = { linkedin: liText, seo: seoText };
+  }
+
+  // Informe del mes actual
+  const mesActualCorto = MONTHS[currentMonthIdx()];
+  let actual = todos[mesActualCorto] || { linkedin: '', seo: '' };
 
   // Fallback: último mes con texto
   if (!actual.linkedin && !actual.seo) {
-    const conTexto = mesKeys.filter(m => todos[m].linkedin || todos[m].seo);
-    if (conTexto.length) {
-      actual = todos[conTexto[conTexto.length - 1]];
-      log('  -> Sin informe para ' + mesActual + ', usando ' + conTexto[conTexto.length - 1]);
+    for (let i = currentMonthIdx(); i >= 0; i--) {
+      const m = todos[MONTHS[i]];
+      if (m && (m.linkedin || m.seo)) {
+        actual = m;
+        log('  -> Fallback al mes ' + MONTHS[i]);
+        break;
+      }
     }
   }
 
@@ -160,7 +156,7 @@ async function readInformes(sheetsApi, existing) {
   if (!actual.linkedin) actual.linkedin = existing?.informe_ia?.linkedin || '';
   if (!actual.seo)      actual.seo      = existing?.informe_ia?.seo      || '';
 
-  log('  -> Informe actual: LinkedIn ' + actual.linkedin.length + ' chars, SEO ' + actual.seo.length + ' chars');
+  log('  -> Informe actual (' + mesActualCorto + '): LinkedIn ' + actual.linkedin.length + ' chars, SEO ' + actual.seo.length + ' chars');
   return { actual, todos };
 }
 
@@ -171,8 +167,7 @@ function buildHistorico(linkedin, seo, informes) {
   const historico = {};
 
   MONTHS.forEach((mes, idx) => {
-    const label     = mes + ' ' + CFG.period;
-    const labelFull = MONTH_FULL[idx] + ' ' + CFG.period;
+    const label = mes + ' ' + CFG.period;
 
     const tieneLinkedin = Object.values(linkedin.metrics).some(m => m.values[idx] !== null);
     const tieneSeo      = Object.values(seo.metrics).some(m => m.values[idx] !== null);
@@ -192,12 +187,12 @@ function buildHistorico(linkedin, seo, informes) {
       seoMetrics[key] = Object.assign({}, seo.metrics[key]);
     });
 
-    const informe = informes.todos[labelFull] || { linkedin: '', seo: '' };
+    const informe = informes.todos[mes] || { linkedin: '', seo: '' };
 
     historico[mes] = {
       label,
-      linkedin:   { goals: liGoals,   metrics: liMetrics   },
-      seo:        { goals: seoGoals,  metrics: seoMetrics  },
+      linkedin:   { goals: liGoals,  metrics: liMetrics  },
+      seo:        { goals: seoGoals, metrics: seoMetrics },
       informe_ia: { linkedin: informe.linkedin, seo: informe.seo, generado: now() },
     };
   });
@@ -210,7 +205,7 @@ function buildHistorico(linkedin, seo, informes) {
    ══════════════════════════════════════════════════════════════════════════════ */
 async function main() {
   log('===========================================');
-  log('hanson* · Actualizador Dashboard Welysis v4');
+  log('hanson* · Actualizador Dashboard Welysis v5');
   log('===========================================');
 
   if (!CFG.spreadsheetId) { log('ERROR: falta SPREADSHEET_ID'); process.exit(1); }
@@ -218,14 +213,12 @@ async function main() {
   const existing = loadExisting();
   log('JSON existente: ' + (existing ? 'encontrado' : 'creando desde cero'));
 
-  const auth      = await getAuth();
-  const sheetsApi = google.sheets({ version: 'v4', auth });
+  const sheets = await getSheets();
 
-  const [linkedin, seo, informes] = await Promise.all([
-    readLinkedin(sheetsApi),
-    readSeo(sheetsApi),
-    readInformes(sheetsApi, existing),
-  ]);
+  // Leer secuencialmente para evitar rate limits
+  const linkedin = await readLinkedin(sheets);
+  const seo      = await readSeo(sheets);
+  const informes = await readInformes(sheets, existing);
 
   const historico = buildHistorico(linkedin, seo, informes);
   const mesActual = MONTHS[currentMonthIdx()];
@@ -239,7 +232,7 @@ async function main() {
       month_current:    mesActual,
       tagline_linkedin: existing?.meta?.tagline_linkedin || 'los numeros no mienten, pero si se maquillan*',
       tagline_seo:      existing?.meta?.tagline_seo      || 'google nos quiere, pero hay que currarselo*',
-      generated_by:     'hanson-updater v4',
+      generated_by:     'hanson-updater v5',
     },
     linkedin: {
       goals:     linkedin.goals,
