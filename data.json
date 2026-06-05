@@ -2,7 +2,7 @@
   "meta": {
     "client": "welysis",
     "period": "2026",
-    "updated": "2026-06-03",
+    "updated": "2026-06-05",
     "month_label": "May 2026",
     "month_current": "May",
     "tagline_linkedin": "La gente nos vio, nos siguió y hasta le dio like. No está mal*",
@@ -336,7 +336,7 @@
   "informe_ia": {
     "linkedin": "Mayo ha sido un mes con datos para analizar con calma. Los seguidores siguen creciendo, ya vamos por **1.095**, y los visitantes al perfil han subido a **143**, el mejor dato desde que empezamos. Pero hay una métrica que llama la atención: las impresiones de contenido bajan a 1.753 en posts propios, aunque el engagement se ha disparado a **+314%**. Eso significa una cosa muy concreta: publicamos menos veces (5 posts), pero lo que publicamos ha conectado mucho mejor. El post del evento en África llegó a **614 impresiones y 34 reacciones**, que para el volumen de seguidores que tenemos es un resultado muy sólido.\n\nLa parte que hay que trabajar es la constancia. 5 posts en un mes es poco para un perfil que todavía está construyendo masa crítica. Las reacciones están en **101**, casi en el objetivo anual de 120 y solo en mayo, lo que confirma que cuando el contenido es bueno la audiencia responde. El problema no es la calidad, es el volumen. Necesitamos mantener ese nivel de contenido pero publicando más.\n\nPara junio la prioridad es clara: mantener el estilo de los posts que mejor han funcionado (eventos reales, contexto industrial, contenido cercano). El objetivo de **2.000 seguidores** está al 55% del año, hay que acelerar. El material está, la estrategia funciona, solo falta más gas*",
     "seo": "Los números de mayo hablan claro: **958 clics orgánicos** y **137.164 impresiones** entre Google y Bing. El SEO es el principal motor de Welysis en digital, con el **76% del tráfico total** viniendo de búsqueda orgánica. Eso no es casualidad, es el resultado de meses trabajando contenido técnico en tres idiomas. Hay **111 keywords en top 10**, el mejor dato del año, y la web ya aparece en respuestas de ChatGPT, Claude, Perplexity y Gemini, algo que en un sector B2B industrial vale mucho.\n\nEl punto que necesita atención es la posición media: **8,56**. Ha empeorado respecto a los meses anteriores (veníamos de 5,4 en marzo), lo que indica que hay más competencia o que algunas páginas han perdido posiciones. No es alarmante, pero hay que vigilarlo. El CTR combinado está en **0,70%**, que con ese volumen de impresiones tiene mucho margen de mejora. Google ya muestra la web, pero los usuarios no están clicando tanto como deberían.\n\nLa prioridad para junio es una: mejorar los títulos y descripciones de las páginas que ya tienen muchas impresiones pero poco CTR, especialmente en francés e inglés. Con ese cambio, el tráfico puede crecer sin publicar una sola línea nueva de contenido*",
-    "generado": "2026-06-03T12:24:37.920Z"
+    "generado": "2026-06-05T17:24:37.926Z"
   },
   "historico": {
     "Ene": {
@@ -604,7 +604,7 @@
       "informe_ia": {
         "linkedin": "",
         "seo": "",
-        "generado": "2026-06-03"
+        "generado": "2026-06-05"
       }
     },
     "Feb": {
@@ -872,7 +872,7 @@
       "informe_ia": {
         "linkedin": "",
         "seo": "",
-        "generado": "2026-06-03"
+        "generado": "2026-06-05"
       }
     },
     "Mar": {
@@ -1140,7 +1140,7 @@
       "informe_ia": {
         "linkedin": "",
         "seo": "",
-        "generado": "2026-06-03"
+        "generado": "2026-06-05"
       }
     },
     "Abr": {
@@ -1408,7 +1408,7 @@
       "informe_ia": {
         "linkedin": "",
         "seo": "",
-        "generado": "2026-06-03"
+        "generado": "2026-06-05"
       }
     },
     "May": {
@@ -1676,7 +1676,7 @@
       "informe_ia": {
         "linkedin": "",
         "seo": "",
-        "generado": "2026-06-03"
+        "generado": "2026-06-05"
       }
     }
   },
